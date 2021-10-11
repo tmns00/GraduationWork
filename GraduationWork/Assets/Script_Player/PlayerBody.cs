@@ -8,6 +8,7 @@ public class PlayerBody : MonoBehaviour
     private GhostSystem ghostSystem;
     [SerializeField]
     private Material material;
+    [SerializeField]
     private Color bodyColor;
 
     // Start is called before the first frame update
@@ -21,6 +22,10 @@ public class PlayerBody : MonoBehaviour
     {
         if (ghostSystem.GetIsGhost())
             ChangeBody();
+        else
+            bodyColor.a = 1.0f;
+
+        material.color = bodyColor;
     }
 
     void ChangeBody()
@@ -28,7 +33,5 @@ public class PlayerBody : MonoBehaviour
         if (bodyColor.a < 1.0f)
             return;
         bodyColor.a = 0.2f;
-
-        material.color = bodyColor;
     }
 }

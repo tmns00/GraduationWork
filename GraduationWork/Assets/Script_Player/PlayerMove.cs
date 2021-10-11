@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         MoveInput();
-        gameObject.transform.position += new Vector3(moveVert, 0.0f, moveHol);
+        gameObject.transform.position += new Vector3(moveHol, 0.0f, moveVert);
     }
 
     private void MoveInput()
