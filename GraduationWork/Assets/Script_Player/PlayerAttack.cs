@@ -29,6 +29,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Item itemScript;
 
+    private Vector3 attackVec = new Vector3(1.0f, 0.0f, 0.0f);
+
     // Update is called once per frame
     void Update()
     {
@@ -70,7 +72,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Instantiate(
             attackArea,
-            gameObject.transform.position,
+            transform.position,
             Quaternion.identity
             );
     }

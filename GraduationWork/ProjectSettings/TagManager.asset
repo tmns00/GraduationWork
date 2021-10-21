@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DeadBody
   - Item
+  - Ghost
   layers:
   - Default
   - TransparentFX

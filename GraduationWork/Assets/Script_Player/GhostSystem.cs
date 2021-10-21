@@ -33,6 +33,7 @@ public class GhostSystem : MonoBehaviour
                 transform.position,
                 deadBody.gameObject.transform.rotation
                 );
+            gameObject.tag = "Ghost";
         }
     }
 
@@ -41,6 +42,7 @@ public class GhostSystem : MonoBehaviour
         isGhost = false;
         Destroy(body);
         isReturn = false;
+        gameObject.tag = "Player";
     }
 
     private void OnTriggerEnter(Collider other)
