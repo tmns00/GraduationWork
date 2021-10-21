@@ -19,13 +19,13 @@ public class GhostSystem : MonoBehaviour
     {
         TurnGhost();
 
-        if (Input.GetKeyDown(KeyCode.E) && isReturn && isGhost)
+        if (Input.GetButtonDown("GhostButton") && isReturn && isGhost)
             ReturnToBody();
     }
 
     void TurnGhost()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isGhost)
+        if (Input.GetButtonDown("GhostButton") && !isGhost)
         {
             isGhost = true;
             Instantiate(
