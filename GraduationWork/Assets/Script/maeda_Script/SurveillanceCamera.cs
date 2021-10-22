@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Sprites;
 
 public class SurveillanceCamera : MonoBehaviour
 {
-    [SerializeField] private bool RotMove; //監視カメラを動かすか
-    [SerializeField] private bool PosMove;
-    [SerializeField, Range(0, 90.0f)]
-    private float SearchAngle;//サーチ範囲
-    [SerializeField] float SerchRadius;　//サーチ半径
-    [SerializeField] private CircleCollider2D circleCollider;
-    [SerializeField, Range(0, 90.0f)] float Angle = 0;//回転アングル
+    [SerializeField] bool rotMove; //監視カメラを動かすか
+    [SerializeField] bool posMove;
+
+    [SerializeField] CircleCollider2D circleCollider;
+    [SerializeField, Range(0, 90.0f)] float searchAngle;//サーチ範囲
+    [SerializeField] float serchRadius;　//サーチ半径
+    [SerializeField, Range(0, 90.0f)] float rotAngle = 0;//回転アングル
+
+    [SerializeField] float MoveDist = 0;//監視カメラを動かす距離
+    [SerializeField] Vector2 vec;//監視カメラを動かす方向ベクトル
 
     float RotSpeed = 0.5f;
-    Vector3 vec;
+    float MoveSpeed = 0.3f;
     float sec;
     bool playerSearchHit;//プレイヤーが監視カメラの範囲に触れた
     Quaternion defaultRotation;
@@ -28,15 +32,17 @@ public class SurveillanceCamera : MonoBehaviour
 
     private void Update()
     {
-        circleCollider.radius = SerchRadius;
+        circleCollider.radius = serchRadius;
 
-        if(playerSearchHit)
+        if (playerSearchHit)
         {
             Debug.Log("主人公発見: ");
 
         }
 
         RotCamera();
+        CameraMove();
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -50,13 +56,13 @@ public class SurveillanceCamera : MonoBehaviour
             //　敵の前方からの主人公の方向
             var angle = Vector2.Angle(transform.right, playerDirection);
             //　サーチする角度内だったら発見
-            if (angle <= SearchAngle* Search_Adjust ||
-               angle <= SearchAngle * -Search_Adjust)
+            if (angle <= searchAngle* Search_Adjust ||
+               angle <= searchAngle * -Search_Adjust)
             {
                 playerSearchHit = true;
             }
-            else if(angle >= SearchAngle * Search_Adjust ||
-               angle >= SearchAngle * -Search_Adjust)
+            else if(angle >= searchAngle * Search_Adjust ||
+               angle >= searchAngle * -Search_Adjust)
             {
                 playerSearchHit = false;
             }
@@ -70,14 +76,16 @@ public class SurveillanceCamera : MonoBehaviour
         }
     }
 
-    //監視カメラの首振り
+    /// <summary>
+    /// 監視カメラの首振り
+    /// </summary>
     private void RotCamera()
     {
-        if (RotMove)
+        if (rotMove)
         {
             sec += Time.deltaTime;
 
-            var RotAngle = Mathf.Sin(sec * RotSpeed) * Angle;
+            var RotAngle = Mathf.Sin(sec * RotSpeed) * rotAngle;
 
             transform.rotation = Quaternion.AngleAxis(
                 RotAngle,
@@ -85,18 +93,29 @@ public class SurveillanceCamera : MonoBehaviour
         }
     }
 
-    //監視カメラ移動
+    /// <summary>
+    /// 監視カメラ移動
+    /// </summary>
     private void CameraMove()
     {
-        if (PosMove)
+        if (posMove)
         {
+            sec += Time.deltaTime;
 
+            var move = Mathf.Sin(sec * MoveSpeed) * MoveDist;
+
+            transform.position = new Vector2(
+               transform.position.x,
+                vec.y + move);
         }
     }
 
 
 
-
+    /// <summary>
+    /// プレイヤーが監視カメラに引っかかったか
+    /// </summary>
+    /// <returns></returns>
     private bool SearchHit()
     {
         return playerSearchHit;
@@ -107,23 +126,25 @@ public class SurveillanceCamera : MonoBehaviour
     //　サーチする角度表示
     private void OnDrawGizmos()
     {
-        circleCollider.radius = SerchRadius;
+        circleCollider.radius = serchRadius;
 
         Handles.color = new Color(255,0,0,0.2f);
+   
         Handles.DrawSolidArc(
             transform.position,
             transform.forward,
             (Quaternion.Euler(0,0, 0f) * transform.right ),
-            SearchAngle * 2f,
-            SerchRadius);
+            searchAngle * 2f,
+            serchRadius);
 
         Handles.DrawSolidArc(
             transform.position,
             transform.forward,
             (Quaternion.Euler(0, 0, 0f) * transform.right),
-            SearchAngle * -2f,
-            SerchRadius);
+            searchAngle * -2f,
+            serchRadius);
+               
     }
 #endif
-    
+
 }
