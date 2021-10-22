@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class enemymove : MonoBehaviour
 {
-    public float rotation;
-    public float time;
+    //public float rotation;
+    //public float time;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rotation = 0;
-        time = 0;
+        //rotation = 0;
+        //time = 0;
 
 
     }
@@ -21,28 +21,28 @@ public class enemymove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
-        if (time <= 0)
-        {
-            time = 0.1f;
+        //time -= Time.deltaTime;
+        //if (time <= 0)
+        //{
+        //    time = 0.1f;
 
-            for (int i = 0; i < 91; i++)
-            {
-                rotation = i;
+        //    for (int i = 0; i < 91; i++)
+        //    {
+        //        rotation = i;
 
-                if (i >= 90)
-                {
-                    i = 0;
-                }
-            }
+        //        if (i >= 90)
+        //        {
+        //            i = 0;
+        //        }
+        //    }
 
-            transform.Rotate(new Vector3(0, rotation, 0));
+        //    transform.Rotate(new Vector3(0, rotation, 0));
 
 
-        }
+        //}
 
-        
 
+        transform.Rotate(new Vector3(0, 3, 0));
 
 
     }
