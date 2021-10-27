@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed;
+    public float speed;
+    private float moveSpeed;
 
     private float moveVert;
     private float moveHol;
 
     private Vector3 playerPos;
+
+    [SerializeField]
+    GhostSystem ghostSystem;
 
     void Start()
     {
@@ -19,8 +23,10 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        DecideSpeed();
 
         MoveInput();
+
         transform.position += new Vector3(moveHol, 0.0f, moveVert);
 
         Vector3 diff = transform.position - playerPos;
@@ -35,5 +41,13 @@ public class PlayerMove : MonoBehaviour
     {
         moveVert = Input.GetAxis("Vertical") * moveSpeed;
         moveHol = Input.GetAxis("Horizontal") * moveSpeed;
+    }
+
+    private void DecideSpeed()
+    {
+        if (ghostSystem.GetIsGhost())
+            moveSpeed = 0.5f;
+        else
+            moveSpeed = speed;
     }
 }

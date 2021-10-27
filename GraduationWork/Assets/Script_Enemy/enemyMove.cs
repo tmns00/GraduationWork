@@ -61,10 +61,15 @@ public class enemyMove : MonoBehaviour
         {
             isAttack = true;
         }
+
+        if(other.gameObject.tag == "DeadBody")
+        {
+
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag=="Player")
+        if(other.gameObject.tag== "Player" || other.gameObject.tag == "DeadBody")
         {
             isAttack = false;
         }

@@ -5,6 +5,14 @@ using UnityEngine;
 public class Treasure : MonoBehaviour
 {
     private bool isGet = false;
+    [SerializeField]
+    GameSystem4 toClear;
+
+    private void Update()
+    {
+        if (isGet)
+            toClear.StartGame();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
