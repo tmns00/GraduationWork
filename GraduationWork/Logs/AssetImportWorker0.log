@@ -15,11 +15,11 @@ D:/GraduationWork/GraduationWork
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59816
+56464
 Successfully changed project path to: D:/GraduationWork/GraduationWork
 D:/GraduationWork/GraduationWork
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 30.90 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 30.25 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.11f1 (99c7afb366b3)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -35,91 +35,109 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56988
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56468
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002901 seconds.
+Registered in 0.002880 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 28.66 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 29.97 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.535 seconds
+- Completed reload, in  1.606 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003040 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.886 seconds
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.31 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1414 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.3 MB.
-System memory in use after: 69.4 MB.
-
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1850.
-Total: 2.234300 ms (FindLiveObjects: 0.144900 ms CreateObjectMapping: 0.044000 ms MarkObjects: 1.976000 ms  DeleteObjects: 0.068500 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Material/PlayerHideUnlit.shader
-  artifactKey: Guid(b1f3de3bb8662c249abf48bddddf8776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Material/PlayerHideUnlit.shader using Guid(b1f3de3bb8662c249abf48bddddf8776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1abd489c98035f1f6361b968aaba5ce0') in 0.048145 seconds
-  Import took 0.050784 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4958.427016 seconds.
-  path: Assets/Material/PlayerHideUnlit.shader
-  artifactKey: Guid(b1f3de3bb8662c249abf48bddddf8776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Material/PlayerHideUnlit.shader using Guid(b1f3de3bb8662c249abf48bddddf8776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74e54940c7bbde2d76758c4325c8fe75') in 0.002584 seconds
-  Import took 0.007664 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001081 seconds.
-  path: Assets/Material/PlayerHideUnlit.shader
-  artifactKey: Guid(b1f3de3bb8662c249abf48bddddf8776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Material/PlayerHideUnlit.shader using Guid(b1f3de3bb8662c249abf48bddddf8776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74e54940c7bbde2d76758c4325c8fe75') in 0.005139 seconds
-  Import took 0.007611 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.775997 seconds.
-  path: Assets/Material/PlayerHideUnlitMaterial.mat
-  artifactKey: Guid(fb112a6ac8d376b42852b1c46de166a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Material/PlayerHideUnlitMaterial.mat using Guid(fb112a6ac8d376b42852b1c46de166a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77aeb6333c15cd0357c6c4ec715b4f91') in 0.136419 seconds
-  Import took 0.139469 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002954 seconds.
+Registered in 0.002959 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.105 seconds
+- Completed reload, in  1.187 seconds
 Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
 Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1407 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 72.4 MB.
-System memory in use after: 72.5 MB.
+Unloading 1414 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.3 MB.
+System memory in use after: 69.4 MB.
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1893.
-Total: 2.220900 ms (FindLiveObjects: 0.174600 ms CreateObjectMapping: 0.043300 ms MarkObjects: 1.981500 ms  DeleteObjects: 0.020400 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1851.
+Total: 2.324600 ms (FindLiveObjects: 0.177000 ms CreateObjectMapping: 0.044300 ms MarkObjects: 2.032100 ms  DeleteObjects: 0.069900 ms)
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  path: Assets/SurveillanceCamera.png
+  artifactKey: Guid(a8996212af3a7e5468f84e5eb46aad09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SurveillanceCamera.png using Guid(a8996212af3a7e5468f84e5eb46aad09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0138fbff9ead57fc98ee4ab7e77d3b23') in 0.166151 seconds
+  Import took 0.170217 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000410 seconds.
+  path: Assets/InfraredLaser.png
+  artifactKey: Guid(bb7accd115f9f4d49ba12a533f2630e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfraredLaser.png using Guid(bb7accd115f9f4d49ba12a533f2630e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d85d7e8dfd252a2ea99c86a1d829e03') in 0.022719 seconds
+  Import took 0.025935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000394 seconds.
+  path: Assets/InfrareSensor.png
+  artifactKey: Guid(88421ec947c00f54bbc0c2b4d09936d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/InfrareSensor.png using Guid(88421ec947c00f54bbc0c2b4d09936d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b73a2a1d5a64908d843d70d04d1970d3') in 0.020617 seconds
+  Import took 0.024514 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.606098 seconds.
+  path: Assets/Particles
+  artifactKey: Guid(2c93a8a6938da834287bb8fd3928c902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Particles using Guid(2c93a8a6938da834287bb8fd3928c902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4088013423816422098d5888a0bc75e') in 0.007919 seconds
+  Import took 0.011552 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1534.704174 seconds.
+  path: Assets/Particles/ToGhostSteam.prefab
+  artifactKey: Guid(f55a72aa8d9115e4ba1c2fe32fd76383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Particles/ToGhostSteam.prefab using Guid(f55a72aa8d9115e4ba1c2fe32fd76383) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '087a3165112136db88b2c7cd115dbd71') in 0.023689 seconds
+  Import took 0.029014 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 989.169379 seconds.
+  path: Assets/Particles/InGhostSteam.prefab
+  artifactKey: Guid(9da47896bd94985448e87d632b484264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Particles/InGhostSteam.prefab using Guid(9da47896bd94985448e87d632b484264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8d82714f57923dec92375f0a57da6cf') in 0.010221 seconds
+  Import took 0.014453 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002679 seconds.
+  path: Assets/Particles/InGhostSteam.prefab
+  artifactKey: Guid(9da47896bd94985448e87d632b484264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Particles/InGhostSteam.prefab using Guid(9da47896bd94985448e87d632b484264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8d82714f57923dec92375f0a57da6cf') in 0.005032 seconds
+  Import took 0.008217 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 399.820954 seconds.
+  path: Assets/Particles/ReturnGhostSteam.prefab
+  artifactKey: Guid(36cd1be7c70b05f43aea426585c6c2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Particles/ReturnGhostSteam.prefab using Guid(36cd1be7c70b05f43aea426585c6c2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a7a004496831b2b16dc3f3496635abe') in 0.009411 seconds
+  Import took 0.013075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002860 seconds.
+  path: Assets/Particles/ReturnGhostSteam.prefab
+  artifactKey: Guid(36cd1be7c70b05f43aea426585c6c2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Particles/ReturnGhostSteam.prefab using Guid(36cd1be7c70b05f43aea426585c6c2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a7a004496831b2b16dc3f3496635abe') in 0.003768 seconds
+  Import took 0.006969 seconds .
+
