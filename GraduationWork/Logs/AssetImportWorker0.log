@@ -141,3 +141,4 @@ Received Import Request.
 Start importing Assets/Particles/ReturnGhostSteam.prefab using Guid(36cd1be7c70b05f43aea426585c6c2d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a7a004496831b2b16dc3f3496635abe') in 0.003768 seconds
   Import took 0.006969 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
