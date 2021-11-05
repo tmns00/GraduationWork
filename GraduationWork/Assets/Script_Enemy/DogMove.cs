@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
-public class enemyMove : MonoBehaviour
+public class DogMove : MonoBehaviour
 {
-
     public Transform[] points;
     private int destPoint = 0;
     private NavMeshAgent agent;
@@ -24,7 +22,15 @@ public class enemyMove : MonoBehaviour
     float shottime;
     float times;
     //あたり判定の半径を変更
+    [SerializeField]
     SphereCollider sphereCollider;
+    //霊体を見つけたら吠える
+    [SerializeField]
+    GameObject barkCollider;
+    [SerializeField]
+    float barkTime;
+    float timeb;
+    bool bark;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -41,6 +47,9 @@ public class enemyMove : MonoBehaviour
         GotoNextPoint();
         isShot = false;
         sphereCollider = GetComponent<SphereCollider>();
+        barkCollider.SetActive(false);
+        timeb = 0;
+        bark = false;
     }
 
 
@@ -83,7 +92,7 @@ public class enemyMove : MonoBehaviour
         }
         if (!isTracking)
             time = 0;
-        if(isShot)
+        if (isShot)
         {
             times += 1 / 60f;
             if (times >= shottime)
@@ -92,25 +101,33 @@ public class enemyMove : MonoBehaviour
                 isShot = false;
             }
         }
-        if(isShot)
+        if (isShot)
         {
             agent.speed = 1.5f;
             sphereCollider.radius = 3;
         }
-        if(!isShot)
+        if (!isShot)
         {
             agent.speed = 3.5f;
             sphereCollider.radius = 6;
         }
+        if(!bark)
+        {
+            timeb += 1 / 60f;
+            if (timeb >= barkTime)
+            {
+                barkCollider.SetActive(false);
+            }
+        }
        
     }
-
     private void OnTriggerStay(Collider other)
     {
+        var positionDiff = other.transform.position - transform.position; //敵とプレイヤーの距離
+        var angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
         if (other.gameObject.tag == "Player")
         {
-            var positionDiff = other.transform.position - transform.position; //敵とプレイヤーの距離
-            var angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
+           
             if (angle <= searchAngle)
             {
                 isAttack = true;
@@ -124,17 +141,30 @@ public class enemyMove : MonoBehaviour
                 }
             }
         }
-        if(other.gameObject.tag=="playerattack")
+        if (other.gameObject.tag == "playerattack")
         {
             isShot = true;
+        }
+        if (other.gameObject.tag == "Ghost")
+        {
+            if (angle <= searchAngle)
+            {
+                barkCollider.SetActive(true);
+                bark = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (isAttack)
-            isTracking = true;
-
-
+        if (other.gameObject.tag == "Player")
+        {
+            if (isAttack)
+                isTracking = true;
+        }
+        if(other.gameObject.tag=="Ghost")
+        {
+            bark = false;
+        }
+      
     }
-    
 }
