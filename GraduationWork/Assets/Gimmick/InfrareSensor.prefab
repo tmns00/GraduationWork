@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7710020495376368353}
   - component: {fileID: 7710020495376368352}
   m_Layer: 0
-  m_Name: Irradiator 2
+  m_Name: Irradiator1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 7710020496894643192}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7710020495376368352
 SpriteRenderer:
@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 88421ec947c00f54bbc0c2b4d09936d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23d9754d7adb59443a062f0c1a936019, type: 3}
   m_Color: {r: 1, g: 0.9711635, b: 0.9283019, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bb7accd115f9f4d49ba12a533f2630e9, type: 3}
   m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
   m_FlipX: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 7710020496735103232}
   - component: {fileID: 7710020496735103235}
   m_Layer: 0
-  m_Name: Irradiator
+  m_Name: Irradiator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,11 +216,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7710020496735103233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.661, y: -0.004, z: 0}
+  m_LocalPosition: {x: 1.661, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 7710020496894643192}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7710020496735103235
 SpriteRenderer:
@@ -262,12 +262,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 88421ec947c00f54bbc0c2b4d09936d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23d9754d7adb59443a062f0c1a936019, type: 3}
   m_Color: {r: 1, g: 0.9711635, b: 0.9283019, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -300,11 +300,11 @@ Transform:
   m_GameObject: {fileID: 7710020496894643190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.88, y: 2.49, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 7710020495451807527}
-  - {fileID: 7710020496735103232}
   - {fileID: 7710020495376368353}
+  - {fileID: 7710020496735103232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
