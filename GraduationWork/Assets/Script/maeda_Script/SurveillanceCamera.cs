@@ -22,9 +22,7 @@ public class SurveillanceCamera : MonoBehaviour
     bool cameraStop = false; //憑依された際の機能ストップ
     Quaternion defaultRotation;
     AudioSource alertAudio; //アラート音
-    //[SerializeField] AudioClip audioClip;
     [SerializeField] float setRebootTime;//再起動にかかる時間
-
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +31,7 @@ public class SurveillanceCamera : MonoBehaviour
         defaultRotation = transform.rotation;
         alertAudio = GetComponent<AudioSource>();
     }
-    
+
     private void Update()
     {
         searchCollider.radius = serchRadius;
@@ -142,7 +140,7 @@ public class SurveillanceCamera : MonoBehaviour
     }
 
     /// <summary>
-    /// 再起動
+    /// 再起動(未完成)
     /// </summary>
     private void Reboot()
     {
@@ -192,6 +190,7 @@ public class SurveillanceCamera : MonoBehaviour
     //    }
     //}
 
+  
 
 
 #if UNITY_EDITOR
