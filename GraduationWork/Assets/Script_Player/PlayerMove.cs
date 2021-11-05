@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
     private void DecideSpeed()
     {
         if (ghostSystem.GetIsGhost())
-            moveSpeed = 0.5f;
+            moveSpeed = 0.25f;
         else
             moveSpeed = speed;
     }

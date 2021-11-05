@@ -29,10 +29,8 @@ public class PlayerParticleSystem : MonoBehaviour
     {
         Debug.Log(ghostSystem.GetIsGhost());
         if (!ghostSystem.GetIsGhost() && !currentGhost)
-        {
-            Debug.Log("ret");
             return;
-        }
+
 
         if (ghostSystem.GetIsGhost() && !currentGhost)
             StartCoroutine(ToGhost());
@@ -44,7 +42,6 @@ public class PlayerParticleSystem : MonoBehaviour
 
     IEnumerator ToGhost()
     {
-        Debug.Log("to");
         toParticle.SetActive(true);
         currentGhost = true;
 
@@ -55,14 +52,12 @@ public class PlayerParticleSystem : MonoBehaviour
 
     void InGhost()
     {
-        Debug.Log("in");
         inParticle.SetActive(true);
         inParticle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     IEnumerator ReGhost()
     {
-        Debug.Log("re");
         inParticle.SetActive(false);
         reParticle.SetActive(true);
         currentGhost = false;

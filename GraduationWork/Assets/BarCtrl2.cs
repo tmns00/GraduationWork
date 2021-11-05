@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BarCtrl2 : MonoBehaviour
 {
+    [SerializeField]
     Slider _slider;
     [SerializeField]
     float _hp = 100;
@@ -12,7 +13,7 @@ public class BarCtrl2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _slider = GameObject.Find("Gauge2").GetComponent<Slider>();
+        //_slider = GameObject.Find("Gauge2").GetComponent<Slider>();
     }
 
     // Update is called once per frame

@@ -19,7 +19,7 @@ public class PlayerFollowCamera : MonoBehaviour
     {
         if (ghostSystem.GetIsGhost())
         {
-            transform.position = player.transform.position + new Vector3(0.0f, 15.0f, -10.0f);
+            transform.position = player.transform.position + new Vector3(0.0f, 12.0f, -6.0f);
             transform.LookAt(player.transform);
         }
         else if (!ghostSystem.GetIsGhost())
