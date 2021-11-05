@@ -19,13 +19,13 @@ public class GhostSystem : MonoBehaviour
     {
         TurnGhost();
 
-        if (Input.GetKeyDown(KeyCode.E) && isReturn && isGhost)
+        if (Input.GetButtonDown("GhostButton") && isReturn && isGhost)
             ReturnToBody();
     }
 
     void TurnGhost()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isGhost)
+        if (Input.GetButtonDown("GhostButton") && !isGhost)
         {
             isGhost = true;
             Instantiate(
@@ -33,6 +33,7 @@ public class GhostSystem : MonoBehaviour
                 transform.position,
                 deadBody.gameObject.transform.rotation
                 );
+            gameObject.tag = "Ghost";
         }
     }
 
@@ -41,6 +42,7 @@ public class GhostSystem : MonoBehaviour
         isGhost = false;
         Destroy(body);
         isReturn = false;
+        gameObject.tag = "Player";
     }
 
     private void OnTriggerEnter(Collider other)
