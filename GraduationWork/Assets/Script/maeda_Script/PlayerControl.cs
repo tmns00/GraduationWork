@@ -21,10 +21,10 @@ public class PlayerControl : MonoBehaviour
         float axisX = Input.GetAxisRaw("Horizontal") 
             * moveSpeed * Time.deltaTime;
 
-        float axisY = Input.GetAxisRaw("Vertical")
+        float axisZ = Input.GetAxisRaw("Vertical")
            * moveSpeed * Time.deltaTime;
 
-        transform.position += new Vector3(axisX, axisY, 0);
+        transform.position += new Vector3(axisX, 0, axisZ);
                      
 
     }

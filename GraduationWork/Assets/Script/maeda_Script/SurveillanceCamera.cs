@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -6,81 +6,110 @@ using UnityEngine.Sprites;
 
 public class SurveillanceCamera : MonoBehaviour
 {
-    [SerializeField] bool rotMove; //ŠÄ‹ƒJƒƒ‰‚ğ“®‚©‚·‚©
+    [SerializeField] bool rotMove; //ç›£è¦–ã‚«ãƒ¡ãƒ©ã‚’å‹•ã‹ã™ã‹
     [SerializeField] bool posMove;
 
-    [SerializeField] CircleCollider2D circleCollider;
-    [SerializeField, Range(0, 90.0f)] float searchAngle;//ƒT[ƒ`”ÍˆÍ
-    [SerializeField] float serchRadius;@//ƒT[ƒ`”¼Œa
-    [SerializeField, Range(0, 90.0f)] float rotAngle = 0;//‰ñ“]ƒAƒ“ƒOƒ‹
+    [SerializeField] SphereCollider searchCollider = null;
+    [SerializeField, Range(0, 90.0f)] float searchAngle;//ã‚µãƒ¼ãƒç¯„å›²
+    [SerializeField] float serchRadius;ã€€//ã‚µãƒ¼ãƒåŠå¾„
+    [SerializeField, Range(0, 90.0f)] float rotAngle = 0;//å›è»¢ã‚¢ãƒ³ã‚°ãƒ«
 
-    [SerializeField] float MoveDist = 0;//ŠÄ‹ƒJƒƒ‰‚ğ“®‚©‚·‹——£
-    [SerializeField] Vector2 vec;//ŠÄ‹ƒJƒƒ‰‚ğ“®‚©‚·•ûŒüƒxƒNƒgƒ‹
+    [SerializeField] float MoveDist = 0;//ç›£è¦–ã‚«ãƒ¡ãƒ©ã‚’å‹•ã‹ã™è·é›¢
+    [SerializeField] Vector3 comMoveVec;//ç›£è¦–ã‚«ãƒ¡ãƒ©ã‚’å‹•ã‹ã™æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«
 
-    float RotSpeed = 0.5f;
-    float MoveSpeed = 0.3f;
     float sec;
-    bool playerSearchHit;//ƒvƒŒƒCƒ„[‚ªŠÄ‹ƒJƒƒ‰‚Ì”ÍˆÍ‚ÉG‚ê‚½
+    static bool playerSearchHit;//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç›£è¦–ã‚«ãƒ¡ãƒ©ã®ç¯„å›²ã«è§¦ã‚ŒãŸ
+    bool cameraStop = false; //æ†‘ä¾ã•ã‚ŒãŸéš›ã®æ©Ÿèƒ½ã‚¹ãƒˆãƒƒãƒ—
     Quaternion defaultRotation;
+    AudioSource alertAudio; //ã‚¢ãƒ©ãƒ¼ãƒˆéŸ³
+    //[SerializeField] AudioClip audioClip;
+    [SerializeField] float setRebootTime;//å†èµ·å‹•ã«ã‹ã‹ã‚‹æ™‚é–“
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerSearchHit = false;
         defaultRotation = transform.rotation;
+        alertAudio = GetComponent<AudioSource>();
     }
-
+    
     private void Update()
     {
-        circleCollider.radius = serchRadius;
+        searchCollider.radius = serchRadius;
 
         if (playerSearchHit)
         {
-            Debug.Log("ålŒö”­Œ©: ");
 
+            Debug.Log("ä¸»äººå…¬ç™ºè¦‹:");
         }
+               
+        if (cameraStop) return;
 
         RotCamera();
         CameraMove();
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
+    {       
+        if (other.tag == "AttackArea")
+        {
+            cameraStop = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
-        //ƒvƒŒƒCƒ„[‚ª”ÍˆÍ‚É“ü‚Á‚½‚ç
+        //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç¯„å›²ã«å…¥ã£ãŸã‚‰
         if (other.tag == "Player")
         {
-            const float Search_Adjust = 2.5f;//ƒT[ƒ`”ÍˆÍ’²®
-            //@ålŒö‚Ì•ûŒü
+            const float Search_Adjust = 2.0f;//ã‚µãƒ¼ãƒç¯„å›²èª¿æ•´
+            //ã€€ä¸»äººå…¬ã®æ–¹å‘
             var playerDirection = other.transform.position - transform.position;
-            //@“G‚Ì‘O•û‚©‚ç‚ÌålŒö‚Ì•ûŒü
-            var angle = Vector2.Angle(transform.right, playerDirection);
-            //@ƒT[ƒ`‚·‚éŠp“x“à‚¾‚Á‚½‚ç”­Œ©
-            if (angle <= searchAngle* Search_Adjust ||
+            //ã€€æ•µã®å‰æ–¹ã‹ã‚‰ã®ä¸»äººå…¬ã®æ–¹å‘
+            var angle = Vector3.Angle(transform.right, playerDirection);
+            //ã€€ã‚µãƒ¼ãƒã™ã‚‹è§’åº¦å†…ã ã£ãŸã‚‰ç™ºè¦‹
+            if (angle <= searchAngle * Search_Adjust ||
                angle <= searchAngle * -Search_Adjust)
             {
                 playerSearchHit = true;
+                cameraStop = true;
+
             }
-            else if(angle >= searchAngle * Search_Adjust ||
+            else if (angle >= searchAngle * Search_Adjust ||
                angle >= searchAngle * -Search_Adjust)
             {
                 playerSearchHit = false;
+                cameraStop = false;
+                alertAudio.Play();
+
             }
         }
+
+        if (other.tag == "AttackArea")
+        {
+            cameraStop = true;
+        }
+
     }
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
             playerSearchHit = false;
+            cameraStop = false;
+
         }
     }
 
     /// <summary>
-    /// ŠÄ‹ƒJƒƒ‰‚ÌñU‚è
+    /// ç›£è¦–ã‚«ãƒ¡ãƒ©ã®é¦–æŒ¯ã‚Š
     /// </summary>
     private void RotCamera()
     {
+        const float RotSpeed = 0.5f;
+
         if (rotMove)
         {
             sec += Time.deltaTime;
@@ -89,15 +118,17 @@ public class SurveillanceCamera : MonoBehaviour
 
             transform.rotation = Quaternion.AngleAxis(
                 RotAngle,
-                Vector3.forward) * defaultRotation;
+                Vector3.up) * defaultRotation;
         }
     }
 
     /// <summary>
-    /// ŠÄ‹ƒJƒƒ‰ˆÚ“®
+    /// ç›£è¦–ã‚«ãƒ¡ãƒ©ç§»å‹•
     /// </summary>
     private void CameraMove()
     {
+        const float MoveSpeed = 0.3f;
+
         if (posMove)
         {
             sec += Time.deltaTime;
@@ -106,44 +137,85 @@ public class SurveillanceCamera : MonoBehaviour
 
             transform.position = new Vector2(
                transform.position.x,
-                vec.y + move);
+                comMoveVec.z + move);
         }
     }
 
+    /// <summary>
+    /// å†èµ·å‹•
+    /// </summary>
+    private void Reboot()
+    {
+     
+        //laserRebootTime -= Time.deltaTime;
 
+        //Debug.Log(laserRebootTime);
+
+        ////å†èµ·å‹•
+        //if (laserRebootTime <= 0.0)
+        //{
+        //    alpha = 1;
+        //    laserRebootTime = setRebootTime;
+        //    StopCoroutine("ColorCoroutin");
+        //    InfraredIrradiation(true);
+        //}
+    }
 
     /// <summary>
-    /// ƒvƒŒƒCƒ„[‚ªŠÄ‹ƒJƒƒ‰‚Éˆø‚Á‚©‚©‚Á‚½‚©
+    /// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç›£è¦–ã‚«ãƒ¡ãƒ©ã«å¼•ã£ã‹ã‹ã£ãŸã‹
     /// </summary>
     /// <returns></returns>
-    private bool SearchHit()
+    private static bool GetSearchHit()
     {
+
         return playerSearchHit;
     }
 
+    /// <summary>
+    /// ç‚¹æ»…ã‚³ãƒ«ãƒ¼ãƒãƒ³
+    /// </summary>
+    /// <returns></returns>
+    //IEnumerator ColorCoroutin()
+    //{
+
+    //    while (true)
+    //    {
+    //        yield return new WaitForEndOfFrame();
+    //        alpha = Mathf.Abs(Mathf.Sin(Time.time / laserRebootTime));
+
+    //        Color _color = laserMesh.material.color;
+
+    //        _color.a = alpha;
+
+    //        laserMesh.material.color = _color;
+
+    //    }
+    //}
+
+
 
 #if UNITY_EDITOR
-    //@ƒT[ƒ`‚·‚éŠp“x•\¦
+    //ã€€ã‚µãƒ¼ãƒã™ã‚‹è§’åº¦è¡¨ç¤º
     private void OnDrawGizmos()
     {
-        circleCollider.radius = serchRadius;
+        searchCollider.radius = serchRadius;
 
         Handles.color = new Color(255,0,0,0.2f);
-   
+
         Handles.DrawSolidArc(
             transform.position,
-            transform.forward,
-            (Quaternion.Euler(0,0, 0f) * transform.right ),
+            transform.up,
+            (Quaternion.Euler(0, 0, 0f) * transform.right),
             searchAngle * 2f,
             serchRadius);
 
         Handles.DrawSolidArc(
             transform.position,
-            transform.forward,
+            transform.up,
             (Quaternion.Euler(0, 0, 0f) * transform.right),
             searchAngle * -2f,
             serchRadius);
-               
+
     }
 #endif
 

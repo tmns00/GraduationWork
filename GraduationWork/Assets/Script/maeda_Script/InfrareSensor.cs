@@ -1,54 +1,147 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
 public class InfrareSensor : MonoBehaviour
 {
-    [SerializeField] bool laserIrradiation = true;//ƒŒ[ƒU[ÆË
-    [SerializeField] GameObject laserObj = null;//ÔŠOüƒIƒuƒWƒF
-    bool playerLaserHit;//ƒvƒŒƒCƒ„[‚ªƒŒ[ƒU[‚ÉG‚ê‚½
+    [SerializeField] bool laserIrradiation = true;//ãƒ¬ãƒ¼ã‚¶ãƒ¼ç…§å°„
+    [SerializeField] MeshRenderer laserMesh = null;//èµ¤å¤–ç·šã‚ªãƒ–ã‚¸ã‚§
+    static bool playerLaserHit;//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒãƒ¬ãƒ¼ã‚¶ãƒ¼ã«è§¦ã‚ŒãŸ
+    [SerializeField] float setRebootTime;//å†èµ·å‹•ã«ã‹ã‹ã‚‹æ™‚é–“
+    [SerializeField] AudioClip audioClip;
+
+    AudioSource audioSource;
+    BoxCollider boxCol;
+    float alpha = 1;
+    float laserRebootTime;
+
+    private void Start()
+    {
+        boxCol = GameObject.Find("laser").GetComponentInChildren<BoxCollider>();
+        audioSource = GetComponent<AudioSource>();
+        laserRebootTime = setRebootTime;
+    }
 
     // Update is called once per frame
     void Update()
     {
         OnLaserIrradiation();
+
+        if (playerLaserHit)
+        {
+            Debug.Log("æ„ŸçŸ¥: ");
+
+        }
+
+        if (laserIrradiation) return;
+
+        if(laserRebootTime <= 3.0f)
+        {
+            StartCoroutine("ColorCoroutin");
+        }
+
+        Reboot();
+
+
     }
 
     /// <summary>
-    /// ÔŠOüƒŒ[ƒU[‚ÌÆË
+    /// èµ¤å¤–ç·šãƒ¬ãƒ¼ã‚¶ãƒ¼ã®ç…§å°„
     /// </summary>
     void OnLaserIrradiation()
     {
-        laserObj.SetActive(laserIrradiation);
+        boxCol.enabled = laserIrradiation;
+        laserMesh.material.color = new Color(
+            laserMesh.material.color.r,
+            laserMesh.material.color.g,
+            laserMesh.material.color.b,
+            alpha);
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
-        playerLaserHit = true;
+        if(other.tag == "Player")
+        {
+            //laserIrradiation = false;
+            //alpha = 0;
+
+            playerLaserHit = true;
+            audioSource.PlayOneShot(audioClip);
+        }
+
+        if (other.tag == "AttackArea")
+        {
+            laserIrradiation = false;
+            alpha = 0;
+
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)
     {
-        playerLaserHit = false;
+        if (other.tag == "Player")
+            playerLaserHit = false;
     }
 
     /// <summary>
-    /// ƒvƒŒƒCƒ„[Š´’m
+    /// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æ„ŸçŸ¥
     /// </summary>
     /// <returns></returns>
-    public bool PlayerHit()
+    public static bool GetPlayerHit()
     {
         return playerLaserHit;
     }
 
     /// <summary>
-    /// ÔŠOüƒŒ[ƒU[‚ÌÆËƒXƒCƒbƒ`
+    /// èµ¤å¤–ç·šãƒ¬ãƒ¼ã‚¶ãƒ¼ã®ç…§å°„ã‚¹ã‚¤ãƒƒãƒ
     /// </summary>
     /// <param name="IrradiationSwitch"></param>
-    public void InfraredIrradiation(bool irradiationSwitch)
+    public void InfraredIrradiation(bool _irradiationSwitch)
     {
-        laserIrradiation = irradiationSwitch;
+        laserIrradiation = _irradiationSwitch;
+    }
+
+    /// <summary>
+    /// å†èµ·å‹•
+    /// </summary>
+    private void Reboot()
+    {
+        laserRebootTime -= Time.deltaTime;
+
+        Debug.Log(laserRebootTime);
+        
+        //å†èµ·å‹•
+        if (laserRebootTime <= 0.0)
+        {
+            alpha = 1;
+            laserRebootTime = setRebootTime;
+            StopCoroutine("ColorCoroutin");
+            InfraredIrradiation(true);
+        }
+
+    }
+
+    /// <summary>
+    /// ç‚¹æ»…ã‚³ãƒ«ãƒ¼ãƒãƒ³
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ColorCoroutin()
+    {
+
+        while (true)
+        {
+            yield return new WaitForEndOfFrame();
+            alpha = Mathf.Abs( Mathf.Sin(Time.time / laserRebootTime)) ;
+
+            Color _color = laserMesh.material.color;
+
+            _color.a = alpha;
+
+            laserMesh.material.color = _color;
+            
+        }
     }
 
 }
