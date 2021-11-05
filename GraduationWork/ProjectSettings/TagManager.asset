@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Ghost
   - Enemy
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

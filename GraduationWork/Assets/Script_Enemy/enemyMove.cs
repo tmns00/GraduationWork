@@ -124,7 +124,7 @@ public class enemyMove : MonoBehaviour
                 }
             }
         }
-        if(other.gameObject.tag=="playerattack")
+        if(other.gameObject.tag=="PlayerAttack")
         {
             isShot = true;
         }

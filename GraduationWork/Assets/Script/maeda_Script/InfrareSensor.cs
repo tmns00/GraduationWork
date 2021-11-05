@@ -16,6 +16,9 @@ public class InfrareSensor : MonoBehaviour
     float alpha = 1;
     float laserRebootTime;
 
+    [SerializeField]
+    private BarCtrl barCtrl;
+
     private void Start()
     {
         boxCol = GameObject.Find("laser").GetComponentInChildren<BoxCollider>();
@@ -64,6 +67,7 @@ public class InfrareSensor : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            barCtrl.SetHP(10.0f);
             //laserIrradiation = false;
             //alpha = 0;
 
@@ -71,7 +75,7 @@ public class InfrareSensor : MonoBehaviour
             audioSource.PlayOneShot(audioClip);
         }
 
-        if (other.tag == "AttackArea")
+        if (other.tag == "PlayerAttack")
         {
             laserIrradiation = false;
             alpha = 0;

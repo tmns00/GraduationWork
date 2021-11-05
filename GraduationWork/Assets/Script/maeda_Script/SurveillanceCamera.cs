@@ -25,6 +25,8 @@ public class SurveillanceCamera : MonoBehaviour
     //[SerializeField] AudioClip audioClip;
     [SerializeField] float setRebootTime;//再起動にかかる時間
 
+    [SerializeField]
+    private BarCtrl barCtrl;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +66,8 @@ public class SurveillanceCamera : MonoBehaviour
         //プレイヤーが範囲に入ったら
         if (other.tag == "Player")
         {
+            barCtrl.SetHP(10.0f);
+
             const float Search_Adjust = 2.0f;//サーチ範囲調整
             //　主人公の方向
             var playerDirection = other.transform.position - transform.position;
@@ -87,7 +91,7 @@ public class SurveillanceCamera : MonoBehaviour
             }
         }
 
-        if (other.tag == "AttackArea")
+        if (other.tag == "PlayerAttack")
         {
             cameraStop = true;
         }
