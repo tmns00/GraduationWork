@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
+    public string sceneName;
     private void Update()
     {
         if (Input.GetButtonDown("ToScene"))
@@ -12,6 +13,6 @@ public class GameSystem : MonoBehaviour
     //　スタートボタンを押したら実行する
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(sceneName);
     }
 }
