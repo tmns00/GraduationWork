@@ -57,6 +57,7 @@ public class PlayerParticleSystem : MonoBehaviour
     {
         Debug.Log("in");
         inParticle.SetActive(true);
+        inParticle.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     IEnumerator ReGhost()

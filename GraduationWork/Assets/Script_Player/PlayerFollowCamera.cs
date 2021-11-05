@@ -18,8 +18,14 @@ public class PlayerFollowCamera : MonoBehaviour
     void Update()
     {
         if (ghostSystem.GetIsGhost())
-            transform.position = player.transform.position + new Vector3(0.0f, 15.0f, -3.0f);
+        {
+            transform.position = player.transform.position + new Vector3(0.0f, 15.0f, -10.0f);
+            transform.LookAt(player.transform);
+        }
         else if (!ghostSystem.GetIsGhost())
-            transform.position = player.transform.position + new Vector3(0.0f, 10.0f, -1.5f);
+        {
+            transform.position = player.transform.position + new Vector3(0.0f, 10.0f, -5.0f);
+            transform.LookAt(player.transform);
+        }
     }
 }
