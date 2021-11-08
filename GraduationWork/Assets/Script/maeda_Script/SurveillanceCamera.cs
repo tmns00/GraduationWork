@@ -20,13 +20,14 @@ public class SurveillanceCamera : MonoBehaviour
     float sec;
     static bool playerSearchHit;//プレイヤーが監視カメラの範囲に触れた
     bool cameraStop = false; //憑依された際の機能ストップ
+
+    RaycastHit hit;
     Quaternion defaultRotation;
     AudioSource alertAudio; //アラート音
-    //[SerializeField] AudioClip audioClip;
     [SerializeField] float setRebootTime;//再起動にかかる時間
 
     [SerializeField]
-    private BarCtrl barCtrl;
+    private BarCtrl barCtrl =null;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,6 @@ public class SurveillanceCamera : MonoBehaviour
 
         if (playerSearchHit)
         {
-
             Debug.Log("主人公発見:");
         }
                
@@ -64,34 +64,42 @@ public class SurveillanceCamera : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //プレイヤーが範囲に入ったら
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            barCtrl.SetHP(10.0f);
 
             const float Search_Adjust = 2.0f;//サーチ範囲調整
             //　主人公の方向
-            var playerDirection = other.transform.position - transform.position;
+            Vector3 playerDirection = other.transform.position - transform.position;
             //　敵の前方からの主人公の方向
             var angle = Vector3.Angle(transform.right, playerDirection);
-            //　サーチする角度内だったら発見
-            if (angle <= searchAngle * Search_Adjust ||
-               angle <= searchAngle * -Search_Adjust)
+
+            Ray ray = new Ray(transform.position,playerDirection);
+
+            if (Physics.Raycast(ray.origin, ray.direction* serchRadius, out hit))
             {
-                playerSearchHit = true;
-                cameraStop = true;
+                //Rayが最初に当たった物体
+                if (hit.collider.CompareTag("Player")) 
+
+                //　サーチする角度内だったら発見
+                if (angle <= searchAngle * Search_Adjust)
+                {
+                    playerSearchHit = true;
+                    cameraStop = true;
+                    barCtrl.SetHP(10.0f);
+
+                }
+                else if (angle >= searchAngle * Search_Adjust)
+                {
+                    playerSearchHit = false;
+                    cameraStop = false;
+                    alertAudio.Play();
+                }
 
             }
-            else if (angle >= searchAngle * Search_Adjust ||
-               angle >= searchAngle * -Search_Adjust)
-            {
-                playerSearchHit = false;
-                cameraStop = false;
-                alertAudio.Play();
-
-            }
+           
         }
 
-        if (other.tag == "PlayerAttack")
+        if (other.CompareTag("PlayerAttack"))
         {
             cameraStop = true;
         }
@@ -99,7 +107,7 @@ public class SurveillanceCamera : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             playerSearchHit = false;
             cameraStop = false;
@@ -165,6 +173,22 @@ public class SurveillanceCamera : MonoBehaviour
         //}
     }
 
+    private bool RayHit(Collider col)
+    {
+        RaycastHit hit;
+        Ray ray = new Ray();
+
+        if (Physics.Raycast(ray.origin,ray.direction,out hit))
+        {
+
+        }
+
+
+        return false;
+    }
+
+
+
     /// <summary>
     /// プレイヤーが監視カメラに引っかかったか
     /// </summary>
@@ -220,6 +244,20 @@ public class SurveillanceCamera : MonoBehaviour
             searchAngle * -2f,
             serchRadius);
 
+
+        Handles.DrawSolidArc(
+           transform.position,
+           transform.forward,
+           (Quaternion.Euler(0, 0, 0f) * transform.right),
+           searchAngle * 2f,
+           serchRadius);
+
+        Handles.DrawSolidArc(
+            transform.position,
+            transform.forward,
+            (Quaternion.Euler(0, 0, 0f) * transform.right),
+            searchAngle * -2f,
+            serchRadius);
     }
 #endif
 

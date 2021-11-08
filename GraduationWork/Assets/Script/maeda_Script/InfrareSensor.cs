@@ -34,7 +34,6 @@ public class InfrareSensor : MonoBehaviour
         if (playerLaserHit)
         {
             Debug.Log("感知: ");
-
         }
 
         if (laserIrradiation) return;
@@ -45,8 +44,6 @@ public class InfrareSensor : MonoBehaviour
         }
 
         Reboot();
-
-
     }
 
     /// <summary>
@@ -68,9 +65,6 @@ public class InfrareSensor : MonoBehaviour
         if(other.tag == "Player")
         {
             barCtrl.SetHP(10.0f);
-            //laserIrradiation = false;
-            //alpha = 0;
-
             playerLaserHit = true;
             audioSource.PlayOneShot(audioClip);
         }
