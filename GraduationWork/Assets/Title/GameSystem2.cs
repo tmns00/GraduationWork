@@ -4,15 +4,21 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem2 : MonoBehaviour
 {
-    private void Update()
-    {
-        if (Input.GetButtonDown("ToScene"))
-            StartGame();
-    }
+    [Header("フェード")] public Fadeimage fade;
 
-    //　スタートボタンを押したら実行する
+    private bool firstPush = false;
+    private bool goNextScene = false;
+    //スタートボタンを押したら実行する
     public void StartGame()
     {
-        SceneManager.LoadScene("Title");
+        fade.StartFadeOut();
+    }
+    private void Update()
+    {
+        if (!goNextScene && fade.IsFadeOutComplete())
+        {
+            SceneManager.LoadScene("Title");
+            goNextScene = true;
+        }
     }
 }
