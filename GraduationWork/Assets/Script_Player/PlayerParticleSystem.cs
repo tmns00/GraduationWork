@@ -25,7 +25,7 @@ public class PlayerParticleSystem : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Debug.Log(ghostSystem.GetIsGhost());
         if (!ghostSystem.GetIsGhost() && !currentGhost)
@@ -42,12 +42,14 @@ public class PlayerParticleSystem : MonoBehaviour
 
     IEnumerator ToGhost()
     {
+        PauseSystem.SetPauseFlag(true);
         toParticle.SetActive(true);
         currentGhost = true;
 
-        yield return new WaitForSeconds(toTime);
+        yield return new WaitForSecondsRealtime(toTime);
 
         toParticle.SetActive(false);
+        PauseSystem.SetPauseFlag(false);
     }
 
     void InGhost()
@@ -58,12 +60,14 @@ public class PlayerParticleSystem : MonoBehaviour
 
     IEnumerator ReGhost()
     {
+        PauseSystem.SetPauseFlag(true);
         inParticle.SetActive(false);
         reParticle.SetActive(true);
         currentGhost = false;
 
-        yield return new WaitForSeconds(reTime);
+        yield return new WaitForSecondsRealtime(reTime);
 
         reParticle.SetActive(false);
+        PauseSystem.SetPauseFlag(false);
     }
 }
