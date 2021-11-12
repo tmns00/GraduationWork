@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2581847582183838461}
   - component: {fileID: 1875473253141066344}
   - component: {fileID: 2949424812192930535}
+  - component: {fileID: 7359600640191523798}
   m_Layer: 0
   m_Name: ToGhostSteam
   m_TagString: Untagged
@@ -4804,3 +4805,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7359600640191523798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719789244221618171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d06efd5bd18f104696898fa71b8f280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 1875473253141066344}

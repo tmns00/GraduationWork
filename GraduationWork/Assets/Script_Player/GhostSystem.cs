@@ -39,6 +39,9 @@ public class GhostSystem : MonoBehaviour
     //–ß‚é‹——£
     private float returnDist;
 
+    //ŒŸ’m‚·‚é‚½‚ß‚ÌƒGƒŠƒA
+    public GameObject searchAreaObj;
+
     private void Start()
     {
         ghostSlider.maxValue = maxHP;
