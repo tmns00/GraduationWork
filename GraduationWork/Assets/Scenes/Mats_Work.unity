@@ -900,7 +900,6 @@ GameObject:
   - component: {fileID: 1002756367}
   - component: {fileID: 1002756370}
   - component: {fileID: 1002756372}
-  - component: {fileID: 1002756373}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1032,12 +1031,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c322d947b2efb7345ab86ac52f15a082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGhost: 0
   deadBody: {fileID: 1308411859941209595, guid: 1052ec3a378bd1e4081b6c052be5ac94,
     type: 3}
   body: {fileID: 0}
+  ghostHP: 0
   useRate: 0.5
   chargeRate: 1
   ghostSlider: {fileID: 1685366512}
+  returnSpeed: 0.25
 --- !u!114 &1002756369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,23 +1110,6 @@ MonoBehaviour:
   currentGhost: 0
   toTime: 1
   reTime: 1
---- !u!114 &1002756373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002756361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d401e4906bfeae45a26d0f4aba6e9cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  models:
-  - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  - {fileID: 0}
-  images: []
-  ghostSystem: {fileID: 1002756368}
 --- !u!1 &1128242053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6892937049714475916, guid: 9da47896bd94985448e87d632b484264,

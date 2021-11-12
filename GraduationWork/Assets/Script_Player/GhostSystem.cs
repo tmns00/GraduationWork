@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GhostSystem : MonoBehaviour
 {
     //幽体かどうか
+    [SerializeField]
     private bool isGhost = false;
     //戻れるかどうか
     private bool isReturn = false;
@@ -18,6 +19,7 @@ public class GhostSystem : MonoBehaviour
     private GameObject body;
 
     //幽体化ゲージの数値
+    [SerializeField]
     private float ghostHP;
     //幽体化ゲージの最大値
     private const float maxHP = 100.0f;
@@ -28,6 +30,14 @@ public class GhostSystem : MonoBehaviour
     //ゲージ表示用スライダー
     [SerializeField]
     private Slider ghostSlider;
+    //強制的に戻されるときの位置
+    private Vector3 forcedPosition;
+    //戻る速さ
+    public float returnSpeed = 1;
+    //戻るときの時間
+    private float startTime;
+    //戻る距離
+    private float returnDist;
 
     private void Start()
     {
@@ -69,6 +79,7 @@ public class GhostSystem : MonoBehaviour
         isReturn = false;
         //タグを変更
         gameObject.tag = "Player";
+        PauseSystem.SetPauseFlag(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -101,9 +112,17 @@ public class GhostSystem : MonoBehaviour
     //ゲージの更新
     void GaugeUpdate()
     {
+        if (ghostHP < 0)
+            ghostHP = 0;
+
         //ゲージが0か
         if (ghostHP <= 0)
+        {
+            forcedPosition = transform.position;
+            returnDist = Vector3.Distance(forcedPosition, body.transform.position);
+            PauseSystem.SetPauseFlag(true);
             ForcedReturn();
+        }
 
         //最大値より大きくなってしまった時に切り捨て
         if (ghostHP >= maxHP)
@@ -124,7 +143,11 @@ public class GhostSystem : MonoBehaviour
     //強制的に戻す
     void ForcedReturn()
     {
-        transform.position = body.transform.position;
-        ReturnToBody();
+        //transform.position = body.transform.position;
+        float interpolateValue = (Time.time - startTime) / returnDist * returnSpeed;
+        transform.position = Vector3.Lerp(forcedPosition, body.transform.position, interpolateValue);
+
+        if (transform.position == body.transform.position)
+            ReturnToBody();
     }
 }
