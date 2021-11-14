@@ -1040,6 +1040,9 @@ MonoBehaviour:
   chargeRate: 1
   ghostSlider: {fileID: 1685366512}
   returnSpeed: 0.25
+  searchAreaObj: {fileID: 942822681450317673, guid: 80d4ce6caaa94b744bbafcda2396367a,
+    type: 3}
+  barCtrl: {fileID: 0}
 --- !u!114 &1002756369
 MonoBehaviour:
   m_ObjectHideFlags: 0

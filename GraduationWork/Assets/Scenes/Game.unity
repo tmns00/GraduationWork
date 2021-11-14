@@ -3751,7 +3751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8801835ab55be1b42990cbb3c709107b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barCtrl: {fileID: 868964336}
+  fade: {fileID: 0}
 --- !u!114 &816387789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3764,6 +3764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50b5291fb6584547adac28885c8d473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fade: {fileID: 0}
 --- !u!4 &816387790
 Transform:
   m_ObjectHideFlags: 0
@@ -4494,12 +4495,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c322d947b2efb7345ab86ac52f15a082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGhost: 0
   deadBody: {fileID: 1308411859941209595, guid: 1052ec3a378bd1e4081b6c052be5ac94,
     type: 3}
   body: {fileID: 0}
+  ghostHP: 0
   useRate: 0.5
   chargeRate: 1
   ghostSlider: {fileID: 1348769484}
+  returnSpeed: 1
+  searchAreaObj: {fileID: 942822681450317673, guid: 80d4ce6caaa94b744bbafcda2396367a,
+    type: 3}
+  barCtrl: {fileID: 868964336}
 --- !u!114 &1004821903
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -41,6 +41,12 @@ public class GhostSystem : MonoBehaviour
 
     //検知するためのエリア
     public GameObject searchAreaObj;
+    //検知エリアスクリプト
+    private SearchArea searchArea;
+
+    //警戒度ゲージ
+    [SerializeField]
+    private BarCtrl barCtrl;
 
     private void Start()
     {
@@ -151,6 +157,12 @@ public class GhostSystem : MonoBehaviour
         transform.position = Vector3.Lerp(forcedPosition, body.transform.position, interpolateValue);
 
         if (transform.position == body.transform.position)
+        {
+            var createObj = Instantiate(searchAreaObj);
+            searchArea = createObj.GetComponent<SearchArea>();
+            barCtrl.SetHP(searchArea.GetEnemyCount() * 5);
+
             ReturnToBody();
+        }
     }
 }
