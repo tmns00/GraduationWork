@@ -29,8 +29,10 @@ public class SearchArea : MonoBehaviour
     {
         if(other.gameObject.tag=="Enemy" && !objList.Contains(other.gameObject))
         {
+            Debug.Log(other);
             objList.Add(other.gameObject);
             enemyCount++;
+            Debug.Log(enemyCount);
         }
     }
 }

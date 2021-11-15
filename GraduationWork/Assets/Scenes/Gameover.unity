@@ -801,7 +801,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1830205003}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameSystem3, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -1053,10 +1053,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830205001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f02b9c2fb49be9942b86275e22c76c04, type: 3}
+  m_Script: {fileID: 11500000, guid: a7200642d05e3c74e8882ce5849d8e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fade: {fileID: 1149806757}
+  sceneName: Title
 --- !u!1 &1836763160
 GameObject:
   m_ObjectHideFlags: 0

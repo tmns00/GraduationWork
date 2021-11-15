@@ -42,11 +42,14 @@ public class GhostSystem : MonoBehaviour
     //検知するためのエリア
     public GameObject searchAreaObj;
     //検知エリアスクリプト
+    [SerializeField]
     private SearchArea searchArea;
 
     //警戒度ゲージ
     [SerializeField]
     private BarCtrl barCtrl;
+    //ゲージ変更フラグ
+    private bool canBar = false;
 
     private void Start()
     {
@@ -57,6 +60,13 @@ public class GhostSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (canBar)
+        {
+            Debug.Log(searchArea.GetEnemyCount());
+            barCtrl.SetHP(searchArea.GetEnemyCount() * 5);
+            canBar = false;
+        }
+
         //幽体化/戻るボタンが共通のためフラグで条件分け
         if (Input.GetButtonDown("GhostButton") && !isGhost)
             TurnGhost();
@@ -158,9 +168,9 @@ public class GhostSystem : MonoBehaviour
 
         if (transform.position == body.transform.position)
         {
-            var createObj = Instantiate(searchAreaObj);
+            var createObj = Instantiate(searchAreaObj, transform.position, Quaternion.identity);
             searchArea = createObj.GetComponent<SearchArea>();
-            barCtrl.SetHP(searchArea.GetEnemyCount() * 5);
+            canBar = true;
 
             ReturnToBody();
         }
