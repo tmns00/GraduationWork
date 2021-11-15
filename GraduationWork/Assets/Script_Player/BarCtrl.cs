@@ -8,6 +8,10 @@ public class BarCtrl : MonoBehaviour
     Slider _slider;
     [SerializeField]
     float _hp = 0;
+
+    [SerializeField]
+    private SceneSystem sceneSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,9 @@ public class BarCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_hp >= 100)
+            GameOver();
+
         //_hp += 0.01f;
         //if(_hp > 1)
         //{
@@ -33,5 +40,11 @@ public class BarCtrl : MonoBehaviour
     public float GetHP()
     {
         return _hp;
+    }
+
+    private void GameOver()
+    {
+        sceneSystem.sceneName = "Gameover";
+        sceneSystem.SceneChange();
     }
 }
