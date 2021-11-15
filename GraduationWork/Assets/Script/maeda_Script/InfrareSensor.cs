@@ -10,11 +10,12 @@ public class InfrareSensor : MonoBehaviour
     static bool playerLaserHit;//プレイヤーがレーザーに触れた
     [SerializeField] float setRebootTime;//再起動にかかる時間
     [SerializeField] AudioClip audioClip;
-
+    [SerializeField] SensorPowerBox powerBox = null;
     AudioSource audioSource;
     BoxCollider boxCol;
     float alpha = 1;
     float laserRebootTime;
+    bool gimkPower;//ギミックの電力
 
     [SerializeField]
     private BarCtrl barCtrl;
@@ -24,6 +25,7 @@ public class InfrareSensor : MonoBehaviour
         boxCol = GameObject.Find("laser").GetComponentInChildren<BoxCollider>();
         audioSource = GetComponent<AudioSource>();
         laserRebootTime = setRebootTime;
+        //gimkPower = powerBox.PowerSwitch();
     }
 
     // Update is called once per frame
@@ -31,8 +33,17 @@ public class InfrareSensor : MonoBehaviour
     {
         OnLaserIrradiation();
 
+        if (!powerBox.PowerSwitch())
+        {
+            boxCol.enabled = false;
+            alpha = 0;
+            return; //シャットダウンしたら下の処理しない
+        }
+
+
         if (playerLaserHit)
         {
+
             Debug.Log("感知: ");
         }
 
@@ -62,14 +73,15 @@ public class InfrareSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             barCtrl.SetHP(10.0f);
             playerLaserHit = true;
             audioSource.PlayOneShot(audioClip);
+
         }
 
-        if (other.tag == "PlayerAttack")
+        if (other.CompareTag("PlayerAttack"))
         {
             laserIrradiation = false;
             alpha = 0;
@@ -79,7 +91,7 @@ public class InfrareSensor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
             playerLaserHit = false;
     }
 
