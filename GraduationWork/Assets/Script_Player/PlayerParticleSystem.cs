@@ -27,7 +27,6 @@ public class PlayerParticleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ghostSystem.GetIsGhost());
         if (!ghostSystem.GetIsGhost() && !currentGhost)
             return;
 
