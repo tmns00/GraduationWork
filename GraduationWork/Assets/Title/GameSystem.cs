@@ -17,7 +17,7 @@ public class GameSystem : MonoBehaviour
     {     
         if (!goNextScene && fade.IsFadeOutComplete())
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Stageselect");
             goNextScene = true;
         }
     }
