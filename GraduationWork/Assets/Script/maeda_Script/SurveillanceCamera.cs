@@ -20,12 +20,12 @@ public class SurveillanceCamera : MonoBehaviour
     float sec;
     static bool playerSearchHit;//プレイヤーが監視カメラの範囲に触れた
     bool cameraStop = false; //憑依された際の機能ストップ
+    bool gimkPower = true;//ギミックの電力
 
     RaycastHit hit;
     Quaternion defaultRotation;
     AudioSource alertAudio; //アラート音
     [SerializeField] float setRebootTime;//再起動にかかる時間
-    [SerializeField] SurveCamPowerBox powerBox = null;
 
     [SerializeField]
     private BarCtrl barCtrl =null;
@@ -40,7 +40,7 @@ public class SurveillanceCamera : MonoBehaviour
     
     private void Update()
     {
-        if (!powerBox.PowerSwitch())
+        if (!gimkPower)
         {
             searchCollider.enabled = false;
             return; //シャットダウンしたら下の処理しない
@@ -173,6 +173,10 @@ public class SurveillanceCamera : MonoBehaviour
         //}
     }
 
+    public void ShutDown()
+    {
+        gimkPower = false;
+    }
 
     /// <summary>
     /// プレイヤーが監視カメラに引っかかったか

@@ -236,6 +236,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 600224933}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &333603433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4905951051822818012, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+    type: 3}
+  m_PrefabInstance: {fileID: 600224933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333603432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecde4870ae0cf046be429036f4374e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &518200838
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +636,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1343954175}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &870588388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
+    type: 3}
+  m_PrefabInstance: {fileID: 1343954175}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870588386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ee8bf8aef2ed54d8c544f1e60e0a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1343954175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1146,6 +1170,11 @@ PrefabInstance:
       propertyPath: gimkObj
       value: 
       objectReference: {fileID: 333603432}
+    - target: {fileID: 4780499873604479642, guid: 6db6df93a506a5448b06cd1d94b58c36,
+        type: 3}
+      propertyPath: infrareSensor
+      value: 
+      objectReference: {fileID: 333603433}
     - target: {fileID: 4780499873604479643, guid: 6db6df93a506a5448b06cd1d94b58c36,
         type: 3}
       propertyPath: m_Name
@@ -1225,6 +1254,11 @@ PrefabInstance:
       propertyPath: gimkObj
       value: 
       objectReference: {fileID: 870588386}
+    - target: {fileID: 7893567713522030476, guid: f5fc70b1311a73246ae70372fd744623,
+        type: 3}
+      propertyPath: survCam
+      value: 
+      objectReference: {fileID: 870588388}
     - target: {fileID: 7893567713522030477, guid: f5fc70b1311a73246ae70372fd744623,
         type: 3}
       propertyPath: m_RootOrder

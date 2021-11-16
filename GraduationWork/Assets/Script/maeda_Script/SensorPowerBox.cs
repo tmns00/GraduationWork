@@ -5,17 +5,8 @@ using UnityEngine;
 public class SensorPowerBox : MonoBehaviour
 {
     bool gimkPower = true;//ギミックの電力
+    [SerializeField] InfrareSensor infrareSensor;
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        if (gimkPower)
-    //        {
-    //            gimkPower = false;
-    //        }
-    //    }
-    //}
 
     private void OnTriggerStay(Collider other)
     {
@@ -23,21 +14,10 @@ public class SensorPowerBox : MonoBehaviour
         {
             if (Input.GetButtonDown("Pick"))
             {
-                if (gimkPower)
-                {
-                    gimkPower = false;
-                }
-                else
-                {
-                    gimkPower = true;
-                }
+               infrareSensor.ShutDown();
             }
         }
 
     }
-    public bool PowerSwitch()
-    {
-        return gimkPower;
-    }
-
+    
 }

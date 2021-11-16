@@ -5,6 +5,7 @@ using UnityEngine;
 public class SurveCamPowerBox : MonoBehaviour
 {
     bool gimkPower = true;//ギミックの電力
+    [SerializeField] SurveillanceCamera survCam;
 
     private void OnTriggerStay(Collider other)
     {
@@ -13,25 +14,11 @@ public class SurveCamPowerBox : MonoBehaviour
 
             if (Input.GetButtonDown("Pick"))
             {
-                if (gimkPower)
-                {
-                    gimkPower = false;
-                }
-                else
-                {
-                    gimkPower = true;
-                }
-
+                survCam.ShutDown();               
             }
 
         }
 
     }
-
-    public bool PowerSwitch()
-    {
-        return gimkPower;
-    }
-
-
+    
 }
