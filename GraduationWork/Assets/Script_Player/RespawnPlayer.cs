@@ -12,5 +12,6 @@ public class RespawnPlayer : MonoBehaviour
     public void Respawn()
     {
         player.transform.position = resPosition.transform.position;
+        player.transform.rotation = Quaternion.identity;
     }
 }

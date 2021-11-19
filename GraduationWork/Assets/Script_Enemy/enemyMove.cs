@@ -23,8 +23,13 @@ public class enemyMove : MonoBehaviour
     [SerializeField]
     float shottime;
     float times;
+    public Fear fear;
+    public bool PlayerCatch;
     //あたり判定の半径を変更
     SphereCollider sphereCollider;
+    public Haunted ht;
+    Vector3 positionDiff;
+    float angle;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -41,6 +46,8 @@ public class enemyMove : MonoBehaviour
         GotoNextPoint();
         isShot = false;
         sphereCollider = GetComponent<SphereCollider>();
+
+        PlayerCatch = false;
     }
 
 
@@ -61,56 +68,144 @@ public class enemyMove : MonoBehaviour
 
     void Update()
     {
-        // エージェントが現目標地点に近づいてきたら、
-        // 次の目標地点を選択します
-        if (!isAttack)
+        isShot = ht.isFear;
+        Debug.Log(fear.FearLevel);
+       positionDiff = Player.transform.position - transform.position; //敵とプレイヤーの距離
+        angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
+        switch (fear.FearLevel)
         {
-            if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                GotoNextPoint();
+            case 0:
+                // エージェントが現目標地点に近づいてきたら、
+                // 次の目標地点を選択します
+                if (!isAttack)
+                {
+                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                        GotoNextPoint();
+                }
+                //索敵範囲内にPlayerが入ったらおう
+                if (isAttack)
+                    agent.SetDestination(Player.transform.position);
+                //索敵範囲外に行った後1秒間追跡する
+                if (isTracking)
+                {
+                    time += 1 / 60f;
+                    if (time >= trackingstop)
+                    {
+                        isAttack = false;
+                        isTracking = false;
+                    }
+                }
+                if (!isTracking)
+                    time = 0;
+
+                if (isShot)
+                {
+                    times += 1 / 60f;
+                    if (times >= shottime)
+                    {
+                        times = 0;
+                        ht.isFear = false;
+                    }
+                }
+                if (isShot)
+                {
+                    agent.speed = 1.5f;
+                    sphereCollider.radius = 3;
+                }
+                if (!isShot)
+                {
+                    agent.speed = 3.5f;
+                    sphereCollider.radius = 6;
+                }
+
+
+                break;
+
+
+            case 1:
+                // エージェントが現目標地点に近づいてきたら、
+                // 次の目標地点を選択します
+                if (!isAttack)
+                {
+                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                        GotoNextPoint();
+                }
+                //索敵範囲内にPlayerが入ったらおう
+                if (isAttack)
+                    agent.SetDestination(Player.transform.position);
+                //索敵範囲外に行った後1秒間追跡する
+                if (isTracking)
+                {
+                    time += 1 / 60f;
+                    if (time >= trackingstop)
+                    {
+                        isAttack = false;
+                        isTracking = false;
+                    }
+                }
+                if (!isTracking)
+                    time = 0;
+
+                if (isShot)
+                {
+                    times += 1 / 60f;
+                    if (times >= shottime)
+                    {
+                        times = 0;
+                        ht.isFear = false;
+                    }
+                }
+                if (isShot)
+                {
+                    agent.speed = 2.5f;
+                    sphereCollider.radius = 4.5f;
+                }
+                if (!isShot)
+                {
+                    agent.speed = 3.5f;
+                    sphereCollider.radius = 6;
+                }
+
+                break;
+            case 2:
+                PlayerCatch = true;
+                // エージェントが現目標地点に近づいてきたら、
+                // 次の目標地点を選択します
+                if (!isAttack)
+                {
+                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                        GotoNextPoint();
+                }
+                //索敵範囲内にPlayerが入ったらおう
+                if (isAttack)
+                    agent.SetDestination(Player.transform.position);
+                //索敵範囲外に行った後1秒間追跡する
+                if (isTracking)
+                {
+                    time += 1 / 60f;
+                    if (time >= trackingstop)
+                    {
+                        isAttack = false;
+                        isTracking = false;
+                    }
+                }
+                if (!isTracking)
+                    time = 0;
+
+                break;
         }
-        //索敵範囲内にPlayerが入ったらおう
-        if (isAttack)
-            agent.SetDestination(Player.transform.position);
-        //索敵範囲外に行った後1秒間追跡する
-        if (isTracking)
-        {
-            time += 1 / 60f;
-            if (time >= trackingstop)
-            {
-                isAttack = false;
-                isTracking = false;
-            }
-        }
-        if (!isTracking)
-            time = 0;
-        if(isShot)
-        {
-            times += 1 / 60f;
-            if (times >= shottime)
-            {
-                times = 0;
-                isShot = false;
-            }
-        }
-        if(isShot)
-        {
-            agent.speed = 1.5f;
-            sphereCollider.radius = 3;
-        }
-        if(!isShot)
-        {
-            agent.speed = 3.5f;
-            sphereCollider.radius = 6;
-        }
-       
+
+
     }
 
     private void OnTriggerStay(Collider other)
     {
+
+
         if (other.gameObject.tag == "Player")
         {
-            var positionDiff = other.transform.position - transform.position; //敵とプレイヤーの距離
-            var angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
+         
+
             if (angle <= searchAngle)
             {
                 isAttack = true;
@@ -124,11 +219,33 @@ public class enemyMove : MonoBehaviour
                 }
             }
         }
-        if(other.gameObject.tag=="PlayerAttack")
+        if (fear.FearLevel >= 1)
         {
-            isShot = true;
+            if (angle < 45)
+                
+            if (other.gameObject.tag == "Ghost")
+            {
+
+
+                if (angle <= searchAngle)
+                {
+                    isAttack = true;
+
+                }
+
+                if (other.gameObject.tag == "Ghost" && isAttack)
+                {
+                    if (angle >= searchAngle)
+                    {
+                        isTracking = true;
+                    }
+                }
+            }
         }
+
+
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (isAttack)
@@ -136,5 +253,5 @@ public class enemyMove : MonoBehaviour
 
 
     }
-    
+
 }
