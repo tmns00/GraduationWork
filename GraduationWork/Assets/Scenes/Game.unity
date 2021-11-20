@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SensorPowerBox (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4780499873604479643, guid: 6db6df93a506a5448b06cd1d94b58c36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4780499873604479647, guid: 6db6df93a506a5448b06cd1d94b58c36,
         type: 3}
       propertyPath: m_RootOrder
@@ -346,6 +351,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: dba9d8fdcb8be4444956bb72e64a13e2, type: 2}
+  - {fileID: 2100000, guid: fb112a6ac8d376b42852b1c46de166a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -741,6 +747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SensorPowerBox (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780499873604479643, guid: 6db6df93a506a5448b06cd1d94b58c36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4780499873604479647, guid: 6db6df93a506a5448b06cd1d94b58c36,
         type: 3}
@@ -1247,6 +1258,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -13.772
       objectReference: {fileID: 0}
+    - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
+        type: 3}
+      propertyPath: barCtrl
+      value: 
+      objectReference: {fileID: 868964336}
     - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
         type: 3}
       propertyPath: powerBox
@@ -4472,6 +4488,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
         type: 3}
+      propertyPath: barCtrl
+      value: 
+      objectReference: {fileID: 868964336}
+    - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
+        type: 3}
       propertyPath: powerBox
       value: 
       objectReference: {fileID: 412147995}
@@ -5254,6 +5275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
         type: 3}
+      propertyPath: barCtrl
+      value: 
+      objectReference: {fileID: 868964336}
+    - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
+        type: 3}
       propertyPath: powerBox
       value: 
       objectReference: {fileID: 412147995}
@@ -5321,11 +5347,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfrareSensor (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4905951051822818002, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4905951051822818003, guid: e3e7c5e6467b6f947bbf639fa8004f34,
         type: 3}
       propertyPath: m_Volume
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4905951051822818003, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d8eb5c0eae3c9a4fb90e4f96a6f4548, type: 3}
+    - target: {fileID: 4905951051822818012, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: barCtrl
+      value: 
+      objectReference: {fileID: 868964336}
     - target: {fileID: 4905951051822818012, guid: e3e7c5e6467b6f947bbf639fa8004f34,
         type: 3}
       propertyPath: powerBox
@@ -6401,8 +6442,6 @@ GameObject:
   - component: {fileID: 1004821900}
   - component: {fileID: 1004821899}
   - component: {fileID: 1004821898}
-  - component: {fileID: 1004821897}
-  - component: {fileID: 1004821909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6410,23 +6449,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1004821897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004821896}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d401e4906bfeae45a26d0f4aba6e9cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  models:
-  - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  - {fileID: 0}
-  images: []
-  ghostSystem: {fileID: 1004821902}
 --- !u!114 &1004821898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6584,7 +6606,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: dba9d8fdcb8be4444956bb72e64a13e2, type: 2}
-  - {fileID: 2100000, guid: fb112a6ac8d376b42852b1c46de166a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6634,21 +6655,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1004821909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004821896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c3a38af7bf1534ba73fe05bc04989e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barCtrl: {fileID: 868964336}
-  respawnPlayer: {fileID: 816387791}
-  ghostSystem: {fileID: 1004821902}
 --- !u!1001 &1025256485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6906,7 +6912,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!64 &1067864168
 MeshCollider:
@@ -9787,6 +9793,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SensorPowerBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4780499873604479643, guid: 6db6df93a506a5448b06cd1d94b58c36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4780499873604479647, guid: 6db6df93a506a5448b06cd1d94b58c36,
         type: 3}
       propertyPath: m_RootOrder
@@ -10781,11 +10792,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfrareSensor
       objectReference: {fileID: 0}
+    - target: {fileID: 4905951051822818002, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4905951051822818003, guid: e3e7c5e6467b6f947bbf639fa8004f34,
         type: 3}
       propertyPath: m_Volume
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4905951051822818003, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d8eb5c0eae3c9a4fb90e4f96a6f4548, type: 3}
+    - target: {fileID: 4905951051822818012, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: barCtrl
+      value: 
+      objectReference: {fileID: 868964336}
     - target: {fileID: 4905951051822818012, guid: e3e7c5e6467b6f947bbf639fa8004f34,
         type: 3}
       propertyPath: powerBox
@@ -11629,7 +11655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1978951642
 Transform:
   m_ObjectHideFlags: 0
@@ -12021,11 +12047,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfrareSensor (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4905951051822818002, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4905951051822818003, guid: e3e7c5e6467b6f947bbf639fa8004f34,
         type: 3}
       propertyPath: m_Volume
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4905951051822818003, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d8eb5c0eae3c9a4fb90e4f96a6f4548, type: 3}
+    - target: {fileID: 4905951051822818012, guid: e3e7c5e6467b6f947bbf639fa8004f34,
+        type: 3}
+      propertyPath: barCtrl
+      value: 
+      objectReference: {fileID: 868964336}
     - target: {fileID: 4905951051822818012, guid: e3e7c5e6467b6f947bbf639fa8004f34,
         type: 3}
       propertyPath: powerBox
@@ -12488,5 +12529,10 @@ PrefabInstance:
       propertyPath: sceneSystem
       value: 
       objectReference: {fileID: 816387788}
+    - target: {fileID: 7266884238377554947, guid: ae68c94463e010b48bf693c26a31a3f0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae68c94463e010b48bf693c26a31a3f0, type: 3}

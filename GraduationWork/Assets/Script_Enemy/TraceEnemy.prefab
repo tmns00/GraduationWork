@@ -203,9 +203,9 @@ MonoBehaviour:
   trackingstop: 0
   isShot: 0
   shottime: 0
-  fear: {fileID: 0}
+  fear: {fileID: 5145675480969692791}
   PlayerCatch: 0
-  ht: {fileID: 0}
+  ht: {fileID: 59347231866240280}
 --- !u!195 &4770085981498728382
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -280,8 +280,8 @@ MonoBehaviour:
   _sight_range: 6
   _sight_angle: 90
   mat: {fileID: 2100000, guid: 5f842da7d10f57d438d3be6d8168c8a3, type: 2}
-  em: {fileID: 0}
-  fear: {fileID: 0}
+  em: {fileID: 4770085981498728376}
+  fear: {fileID: 5145675480969692791}
 --- !u!1 &5288698582325368969
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class Haunted : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(fear.Fearvalue);
+        //Debug.Log(fear.Fearvalue);
         if(isFear)
         {
             time += 1 / 60.0f;

@@ -69,6 +69,9 @@ public class InfrareSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!gimkPower)
+            return;
+
         if(other.CompareTag("Player"))
         {
             barCtrl.SetHP(10.0f);

@@ -69,7 +69,7 @@ public class enemyMove : MonoBehaviour
     void Update()
     {
         isShot = ht.isFear;
-        Debug.Log(fear.FearLevel);
+        //Debug.Log(fear.FearLevel);
        positionDiff = Player.transform.position - transform.position; //敵とプレイヤーの距離
         angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
         switch (fear.FearLevel)
