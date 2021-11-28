@@ -51,6 +51,10 @@ public class GhostSystem : MonoBehaviour
     //ゲージ変更フラグ
     private bool canBar = false;
 
+    //本体の当たり判定
+    [SerializeField]
+    private CapsuleCollider bodyCol;
+
     private void Start()
     {
         ghostSlider.maxValue = maxHP;
@@ -62,7 +66,6 @@ public class GhostSystem : MonoBehaviour
     {
         if (canBar)
         {
-            Debug.Log(searchArea.GetEnemyCount());
             barCtrl.SetHP(searchArea.GetEnemyCount() * 5);
             canBar = false;
         }
@@ -88,6 +91,8 @@ public class GhostSystem : MonoBehaviour
             );
         //タグを変更
         gameObject.tag = "Ghost";
+        //コライダーのトリガー化
+        bodyCol.isTrigger = true;
     }
 
     //戻る
@@ -99,6 +104,9 @@ public class GhostSystem : MonoBehaviour
         //タグを変更
         gameObject.tag = "Player";
         PauseSystem.SetPauseFlag(false);
+
+        //コライダーのトリガー解除
+        bodyCol.isTrigger = false;
     }
 
     private void OnTriggerEnter(Collider other)

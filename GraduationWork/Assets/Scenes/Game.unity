@@ -6543,6 +6543,7 @@ MonoBehaviour:
     type: 3}
   searchArea: {fileID: 0}
   barCtrl: {fileID: 868964336}
+  bodyCol: {fileID: 1004821905}
 --- !u!114 &1004821903
 MonoBehaviour:
   m_ObjectHideFlags: 0
