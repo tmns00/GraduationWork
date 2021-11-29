@@ -717,6 +717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
         type: 3}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f842da7d10f57d438d3be6d8168c8a3, type: 2}
+    - target: {fileID: 3552797934553192697, guid: 9e495e9675d94ba4da7809acc383ab09,
+        type: 3}
       propertyPath: powerBox
       value: 
       objectReference: {fileID: 63349918}

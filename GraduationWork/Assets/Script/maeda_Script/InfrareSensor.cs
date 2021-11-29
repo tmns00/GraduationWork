@@ -38,10 +38,10 @@ public class InfrareSensor : MonoBehaviour
             return; //シャットダウンしたら下の処理しない
         }
         
-        if (playerLaserHit)
-        {
-            Debug.Log("感知: ");
-        }
+        //if (playerLaserHit)
+        //{
+        //    Debug.Log("感知: ");
+        //}
 
         if (laserIrradiation) return;
 
