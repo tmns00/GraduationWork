@@ -55,10 +55,16 @@ public class GhostSystem : MonoBehaviour
     [SerializeField]
     private CapsuleCollider bodyCol;
 
+    //幽体化関連のUI
+    public RawImage toGhostUI;
+    public RawImage reBodyUI;
+
     private void Start()
     {
         ghostSlider.maxValue = maxHP;
         ghostHP = maxHP;
+        toGhostUI.enabled = true;
+        reBodyUI.enabled = false;
     }
 
     // Update is called once per frame
@@ -89,10 +95,15 @@ public class GhostSystem : MonoBehaviour
             transform.position,
             deadBody.gameObject.transform.rotation
             );
+
         //タグを変更
         gameObject.tag = "Ghost";
+
         //コライダーのトリガー化
         bodyCol.isTrigger = true;
+
+        //UI切り替え
+        toGhostUI.enabled = false;
     }
 
     //戻る
@@ -107,6 +118,10 @@ public class GhostSystem : MonoBehaviour
 
         //コライダーのトリガー解除
         bodyCol.isTrigger = false;
+
+        //UI切り替え
+        toGhostUI.enabled = true;
+        reBodyUI.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -115,13 +130,17 @@ public class GhostSystem : MonoBehaviour
         {
             isReturn = true;
             body = other.gameObject;
+            reBodyUI.enabled = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "DeadBody")
-            isReturn = false;     
+        {
+            isReturn = false;
+            reBodyUI.enabled = false;
+        }
     }
 
     //幽体フラグの取得
