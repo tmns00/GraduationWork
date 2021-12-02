@@ -59,6 +59,9 @@ public class GhostSystem : MonoBehaviour
     public RawImage toGhostUI;
     public RawImage reBodyUI;
 
+    //ƒAƒNƒVƒ‡ƒ“UI
+    public RawImage actionUI;
+
     private void Start()
     {
         ghostSlider.maxValue = maxHP;
