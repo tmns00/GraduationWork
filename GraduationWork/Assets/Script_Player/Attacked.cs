@@ -11,9 +11,9 @@ public class Attacked : MonoBehaviour
     [SerializeField]
     GhostSystem ghostSystem;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
+        if (other.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
         {
             barCtrl.SetHP(20.0f);
             respawnPlayer.Respawn();

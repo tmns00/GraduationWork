@@ -29,7 +29,15 @@ public class enemyMove : MonoBehaviour
     SphereCollider sphereCollider;
     public Haunted ht;
     Vector3 positionDiff;
+    Vector3 DeadBodyDiff;
     float angle;
+    float Deadangle;
+    bool isSerch;
+    //壁を貫通しないようにするレイ
+    Ray ray;
+    RaycastHit hit;
+    [SerializeField]
+    private GameObject DeadBody;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -46,7 +54,7 @@ public class enemyMove : MonoBehaviour
         GotoNextPoint();
         isShot = false;
         sphereCollider = GetComponent<SphereCollider>();
-
+        isSerch = false;
         PlayerCatch = false;
     }
 
@@ -70,8 +78,14 @@ public class enemyMove : MonoBehaviour
     {
         isShot = ht.isFear;
         //Debug.Log(fear.FearLevel);
-       positionDiff = Player.transform.position - transform.position; //敵とプレイヤーの距離
-        angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
+        if (isSerch)
+        {
+            positionDiff = Player.transform.position - transform.position; //敵とプレイヤーの距離
+            angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
+
+        }
+        
+
         switch (fear.FearLevel)
         {
             case 0:
@@ -93,6 +107,7 @@ public class enemyMove : MonoBehaviour
                     {
                         isAttack = false;
                         isTracking = false;
+                        isSerch = false;
                     }
                 }
                 if (!isTracking)
@@ -141,6 +156,7 @@ public class enemyMove : MonoBehaviour
                     {
                         isAttack = false;
                         isTracking = false;
+                        isSerch = false;
                     }
                 }
                 if (!isTracking)
@@ -187,6 +203,7 @@ public class enemyMove : MonoBehaviour
                     {
                         isAttack = false;
                         isTracking = false;
+                        isSerch = false;
                     }
                 }
                 if (!isTracking)
@@ -200,15 +217,27 @@ public class enemyMove : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
+        var distance = positionDiff.magnitude;
+        var direction = positionDiff.normalized;
+       
 
         if (other.gameObject.tag == "Player")
         {
-         
 
+            isSerch = true;
             if (angle <= searchAngle)
             {
-                isAttack = true;
+                if (Physics.Raycast(transform.position, direction, out hit, distance))
+                {
+                    if (hit.collider.gameObject.tag == ("Wall"))
+                    {
+                        isAttack = false;
+                    }
+                    else
+                    {
+                        isAttack = true;
+                    }
+                }
             }
 
             if (other.gameObject.tag == "Player" && isAttack)
@@ -221,28 +250,48 @@ public class enemyMove : MonoBehaviour
         }
         if (fear.FearLevel >= 1)
         {
-            if (angle < 45)
-                
-            if (other.gameObject.tag == "Ghost")
-            {
 
-
-                if (angle <= searchAngle)
+                if (other.gameObject.tag == "Ghost")
                 {
-                    isAttack = true;
 
-                }
 
-                if (other.gameObject.tag == "Ghost" && isAttack)
-                {
-                    if (angle >= searchAngle)
+                    if (angle <= searchAngle)
                     {
-                        isTracking = true;
+                      
+                        if (Physics.Raycast(transform.position, direction, out hit, distance))
+                        {
+                            if (hit.collider.gameObject.tag == ("Wall"))
+                            {
+                                isAttack = false;
+                            }
+                            else
+                            {
+                                isAttack = true;
+                            }
+                        }
+
+                    }
+
+                    if (other.gameObject.tag == "Ghost" && isAttack)
+                    {
+                        if (angle >= searchAngle)
+                        {
+                            isTracking = true;
+                        }
                     }
                 }
+        }
+        if(other.gameObject.tag=="DeadBody")
+        {
+            DeadBody = GameObject.Find("DeadBody(Clone)");
+            DeadBodyDiff = DeadBody.transform.position - transform.position; //敵とプレイヤーの距離
+            Deadangle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
+            if (Deadangle <= searchAngle)
+            {
+                
+                agent.SetDestination(DeadBody.transform.position);
             }
         }
-
 
     }
 

@@ -9,6 +9,7 @@ TagManager:
   - Ghost
   - Enemy
   - PlayerAttack
+  - Wall
   layers:
   - Default
   - TransparentFX
