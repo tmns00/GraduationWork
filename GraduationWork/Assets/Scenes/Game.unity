@@ -6517,6 +6517,7 @@ GameObject:
   - component: {fileID: 1004821900}
   - component: {fileID: 1004821899}
   - component: {fileID: 1004821898}
+  - component: {fileID: 1004821897}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6524,6 +6525,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1004821897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004821896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c3a38af7bf1534ba73fe05bc04989e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barCtrl: {fileID: 868964336}
+  respawnPlayer: {fileID: 816387791}
+  ghostSystem: {fileID: 1004821902}
 --- !u!114 &1004821898
 MonoBehaviour:
   m_ObjectHideFlags: 0

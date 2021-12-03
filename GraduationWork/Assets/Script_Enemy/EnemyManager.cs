@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     public int createNums;
     public GameObject[] objects;
-    private List<int> numList;
+    private List<int> numList = new List<int>();
     private int objectCount;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     private void CreateEnemy()
     {
         int num;
-        num = Random.Range(0, objectCount + 1);
+        num = Random.Range(0, objectCount);
         if (numList.Contains(num))
         {
             CreateEnemy();

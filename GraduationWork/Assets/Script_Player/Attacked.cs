@@ -11,12 +11,21 @@ public class Attacked : MonoBehaviour
     [SerializeField]
     GhostSystem ghostSystem;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
+        if (collision.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
         {
             barCtrl.SetHP(20.0f);
             respawnPlayer.Respawn();
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
+    //    {
+    //        barCtrl.SetHP(20.0f);
+    //        respawnPlayer.Respawn();
+    //    }
+    //}
 }
