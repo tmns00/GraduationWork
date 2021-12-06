@@ -29,6 +29,7 @@ public class SurveillanceCamera : MonoBehaviour
 
     [SerializeField] BarCtrl barCtrl =null;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,10 +50,10 @@ public class SurveillanceCamera : MonoBehaviour
         if (playerSearchHit)
         {
             alertAudio.Play();
-            hitSec += 0.1f;
-            if(hitSec >= 10)
+            hitSec += 0.05f;
+            if (hitSec >= 10)
             {
-                barCtrl.SetHP(10.0f);
+                barCtrl.SetHP(10);
                 hitSec = 0;
             }
         }
@@ -76,7 +77,7 @@ public class SurveillanceCamera : MonoBehaviour
             //　主人公の方向
             Vector3 playerDirection = other.transform.position - transform.position;
             //　敵の前方からの主人公の方向
-            var angle = Vector2.Angle(transform.right, playerDirection);
+            var angle = Vector2.Angle(transform.forward, playerDirection);
 
             Ray ray = new Ray(transform.position, playerDirection);
 
@@ -195,36 +196,6 @@ public class SurveillanceCamera : MonoBehaviour
         return playerSearchHit;
     }
 
-    IEnumerator DiscoverCoroutin()
-    {
-        yield return new WaitForSeconds(5);
-
-        barCtrl.SetHP(10.0f);
-
-    }
-
-    /// <summary>
-    /// 点滅コルーチン
-    /// </summary>
-    /// <returns></returns>
-    //IEnumerator ColorCoroutin()
-    //{
-
-    //    while (true)
-    //    {
-    //        yield return new WaitForEndOfFrame();
-    //        alpha = Mathf.Abs(Mathf.Sin(Time.time / laserRebootTime));
-
-    //        Color _color = laserMesh.material.color;
-
-    //        _color.a = alpha;
-
-    //        laserMesh.material.color = _color;
-
-    //    }
-    //}
-
-
 
 #if UNITY_EDITOR
     //　サーチする角度表示
@@ -237,29 +208,29 @@ public class SurveillanceCamera : MonoBehaviour
         Handles.DrawSolidArc(
             transform.position,
             transform.up,
-            (Quaternion.Euler(0, 0, 0f) * transform.right),
+            (Quaternion.Euler(0, 0, 0f) * transform.forward),
             searchAngle * 2f,
             serchRadius);
 
         Handles.DrawSolidArc(
             transform.position,
             transform.up,
-            (Quaternion.Euler(0, 0, 0f) * transform.right),
+            (Quaternion.Euler(0, 0, 0f) * transform.forward),
             searchAngle * -2f,
             serchRadius);
 
 
         Handles.DrawSolidArc(
            transform.position,
-           transform.forward,
-           (Quaternion.Euler(0, 0, 0f) * transform.right),
+           transform.right,
+           (Quaternion.Euler(0, 0, 0f) * transform.forward),
            searchAngle * 2f,
            serchRadius);
 
         Handles.DrawSolidArc(
             transform.position,
-            transform.forward,
-            (Quaternion.Euler(0, 0, 0f) * transform.right),
+            transform.right,
+            (Quaternion.Euler(0, 0, 0f) * transform.forward),
             searchAngle * -2f,
             serchRadius);
     }
