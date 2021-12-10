@@ -1004,72 +1004,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41d515a3df76393488b1046ec68fea39, type: 3}
---- !u!1001 &1702073980255631437
+--- !u!1001 &3377510537229556643
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8315825986437729560, guid: 020e94bc9b04f2b4a849098d9478a901,
+        type: 3}
+      propertyPath: m_Name
+      value: InfraredSensor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.25
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.742899
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -9.11
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4714643962965767244, guid: 020e94bc9b04f2b4a849098d9478a901,
+    - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342983403622100726, guid: 020e94bc9b04f2b4a849098d9478a901,
-        type: 3}
-      propertyPath: m_Name
-      value: InfraredSensor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 020e94bc9b04f2b4a849098d9478a901, type: 3}
