@@ -23,11 +23,11 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        transform.position += new Vector3(moveHol, 0.0f, moveVert);
+
         DecideSpeed();
 
         MoveInput();
-
-        transform.position += new Vector3(moveHol, 0.0f, moveVert);
 
         Vector3 diff = transform.position - playerPos;
 

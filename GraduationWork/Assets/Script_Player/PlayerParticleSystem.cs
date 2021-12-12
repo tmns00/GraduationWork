@@ -13,8 +13,8 @@ public class PlayerParticleSystem : MonoBehaviour
     [SerializeField]
     private bool currentGhost = false;
 
-    public float toTime = 1.0f;
-    public float reTime = 1.0f;
+    public float toTime = 2.0f;
+    public float reTime = 2.0f;
 
     // Start is called before the first frame update
     void Start()

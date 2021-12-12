@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParticleUpdate : MonoBehaviour
 {
     public ParticleSystem particleSystem;
+
     // Update is called once per frame
     void Update()
     {
