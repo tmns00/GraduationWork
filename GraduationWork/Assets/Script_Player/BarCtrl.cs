@@ -12,10 +12,13 @@ public class BarCtrl : MonoBehaviour
     [SerializeField]
     private SceneSystem sceneSystem;
 
+    private bool once = true;
+
     // Start is called before the first frame update
     void Start()
     {
         _slider = GameObject.Find("Gauge").GetComponent<Slider>();
+        once = true;
     }
 
     // Update is called once per frame
@@ -24,11 +27,12 @@ public class BarCtrl : MonoBehaviour
         if (_hp >= 100)
             GameOver();
 
-        //_hp += 0.01f;
-        //if(_hp > 1)
-        //{
-        //    _hp = 0;
-        //}
+        if (once && RoundTripManager.GetIsBackWay())
+        {
+            _hp = 95.0f;
+            once = false;
+        }
+        
         _slider.value = _hp;
     }
 

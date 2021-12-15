@@ -79,7 +79,7 @@ public class GhostSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canBar)
+        if (canBar && !RoundTripManager.GetIsBackWay())
         {
             barCtrl.SetHP(searchArea.GetEnemyCount() * 5);
             canBar = false;
