@@ -10,9 +10,14 @@ public class SceneSystem : MonoBehaviour
     public string sceneName;
     AudioSource audioSource;
 
+    private bool startOnce = true;
+    private bool playOnce = true;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        startOnce = true;
+        playOnce = true;
     }
 
     // Update is called once per frame
@@ -21,6 +26,18 @@ public class SceneSystem : MonoBehaviour
         if (Input.GetButtonDown("ToScene") && SceneManager.GetActiveScene().name != "Game")
         {
             SceneChange();
+        }
+
+        if(startOnce && SceneManager.GetActiveScene().name == "Game")
+        {
+            audioSource.Stop();
+            startOnce = false;
+        }
+
+        if(playOnce && RoundTripManager.GetIsBackWay())
+        {
+            audioSource.Play();
+            playOnce = false;
         }
 
         if (fade.IsFadeOutComplete())
