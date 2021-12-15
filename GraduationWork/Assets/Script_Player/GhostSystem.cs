@@ -62,12 +62,18 @@ public class GhostSystem : MonoBehaviour
     //アクションUI
     public RawImage actionUI;
 
+    private bool isReset = false;
+
+    private bool canMove = true;
+
     private void Start()
     {
         ghostSlider.maxValue = maxHP;
         ghostHP = maxHP;
         toGhostUI.enabled = true;
         reBodyUI.enabled = false;
+        isReset = false;
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -113,6 +119,7 @@ public class GhostSystem : MonoBehaviour
     void ReturnToBody()
     {
         isGhost = false;
+        transform.position = body.transform.position;
         Destroy(body);
         isReturn = false;
         //タグを変更
@@ -125,6 +132,8 @@ public class GhostSystem : MonoBehaviour
         //UI切り替え
         toGhostUI.enabled = true;
         reBodyUI.enabled = false;
+
+        isReset = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -170,7 +179,9 @@ public class GhostSystem : MonoBehaviour
             forcedPosition = transform.position;
             returnDist = Vector3.Distance(forcedPosition, body.transform.position);
             PauseSystem.SetPauseFlag(true);
+            //startTime = Time.deltaTime;
             ForcedReturn();
+            return;
         }
 
         //最大値より大きくなってしまった時に切り捨て
@@ -193,7 +204,7 @@ public class GhostSystem : MonoBehaviour
     void ForcedReturn()
     {
         //transform.position = body.transform.position;
-        float interpolateValue = (Time.time - startTime) / returnDist * returnSpeed;
+        float interpolateValue = (Time.deltaTime - startTime) / returnDist * returnSpeed;
         transform.position = Vector3.Lerp(forcedPosition, body.transform.position, interpolateValue);
 
         if (transform.position == body.transform.position)
@@ -204,5 +215,25 @@ public class GhostSystem : MonoBehaviour
 
             ReturnToBody();
         }
+    }
+
+    public bool GetResetFlag()
+    {
+        return isReset;
+    }
+
+    public void SetResetFlag(bool flag)
+    {
+        isReset = flag;
+    }
+
+    public bool GetMoveFlag()
+    {
+        return canMove;
+    }
+
+    public void SetMoveFlag(bool flag)
+    {
+        canMove = flag;
     }
 }
