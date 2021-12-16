@@ -6,7 +6,8 @@ using UnityEditor;
 public class InfrareSensor : MonoBehaviour
 {
     [SerializeField] bool laserIrradiation = true;//レーザー照射
-    [SerializeField] MeshRenderer laserMesh = null;//赤外線オブジェ
+    [SerializeField]GameObject laser = null;//赤外線マテリアル
+    [SerializeField] Material laserMaterial;
     static bool playerLaserHit;//プレイヤーがレーザーに触れた
     [SerializeField] float setRebootTime;//再起動にかかる時間
     [SerializeField] AudioClip audioClip;
@@ -21,15 +22,19 @@ public class InfrareSensor : MonoBehaviour
 
     private void Start()
     {
-        boxCol = GameObject.Find("laser").GetComponentInChildren<BoxCollider>();
+        boxCol = GameObject.Find("Sasers").GetComponentInChildren<BoxCollider>();
         audioSource = GetComponent<AudioSource>();
         laserRebootTime = setRebootTime;
+        laser.GetComponent<Renderer>().material = laserMaterial;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         OnLaserIrradiation();
+        laser.GetComponent<Renderer>().material.color = laserMaterial.color;
 
         if (!gimkPower)
         {
@@ -37,12 +42,13 @@ public class InfrareSensor : MonoBehaviour
             alpha = 0;
             return; //シャットダウンしたら下の処理しない
         }
-        
-        if (playerLaserHit)
-        {
-            Debug.Log("感知: ");
-        }
 
+        //if (playerLaserHit)
+        //{
+        //    Debug.Log("感知: ");
+        //}
+
+    
         if (laserIrradiation) return;
 
         if(laserRebootTime <= 3.0f)
@@ -59,11 +65,12 @@ public class InfrareSensor : MonoBehaviour
     void OnLaserIrradiation()
     {
         boxCol.enabled = laserIrradiation;
-        laserMesh.material.color = new Color(
-            laserMesh.material.color.r,
-            laserMesh.material.color.g,
-            laserMesh.material.color.b,
+        laserMaterial.color = new Color(
+            laserMaterial.color.r,
+            laserMaterial.color.g,
+            laserMaterial.color.b,
             alpha);
+
 
     }
 
@@ -119,7 +126,7 @@ public class InfrareSensor : MonoBehaviour
     {
         laserRebootTime -= Time.deltaTime;
 
-        Debug.Log(laserRebootTime);
+        //Debug.Log(laserRebootTime);
         
         //再起動
         if (laserRebootTime <= 0.0)
@@ -150,11 +157,11 @@ public class InfrareSensor : MonoBehaviour
             yield return new WaitForEndOfFrame();
             alpha = Mathf.Abs( Mathf.Sin(Time.time / laserRebootTime)) ;
 
-            Color _color = laserMesh.material.color;
+            Color _color = laserMaterial.color;
 
             _color.a = alpha;
 
-            laserMesh.material.color = _color;
+            laserMaterial.color = _color;
             
         }
     }

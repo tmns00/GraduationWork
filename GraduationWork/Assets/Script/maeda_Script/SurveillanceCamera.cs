@@ -18,17 +18,17 @@ public class SurveillanceCamera : MonoBehaviour
     [SerializeField] Vector3 comMoveVec;//監視カメラを動かす方向ベクトル
 
     float sec;
+    float hitSec = 0;//発見された時一定間隔でゲージ増加させる
     static bool playerSearchHit;//プレイヤーが監視カメラの範囲に触れた
     bool cameraStop = false; //憑依された際の機能ストップ
     bool gimkPower = true;//ギミックの電力
 
-    RaycastHit hit;
     Quaternion defaultRotation;
     AudioSource alertAudio; //アラート音
     [SerializeField] float setRebootTime;//再起動にかかる時間
 
-    [SerializeField]
-    private BarCtrl barCtrl =null;
+    [SerializeField] BarCtrl barCtrl =null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +36,9 @@ public class SurveillanceCamera : MonoBehaviour
         playerSearchHit = false;
         defaultRotation = transform.rotation;
         alertAudio = GetComponent<AudioSource>();
+
     }
-    
+
     private void Update()
     {
         if (!gimkPower)
@@ -45,12 +46,16 @@ public class SurveillanceCamera : MonoBehaviour
             searchCollider.enabled = false;
             return; //シャットダウンしたら下の処理しない
         }
-        searchCollider.radius = serchRadius;
 
         if (playerSearchHit)
         {
-            Debug.Log("感知: ");
-
+            alertAudio.Play();
+            hitSec += 0.05f;
+            if (hitSec >= 10)
+            {
+                barCtrl.SetHP(10);
+                hitSec = 0;
+            }
         }
 
         if (cameraStop) return;
@@ -62,44 +67,46 @@ public class SurveillanceCamera : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
+        RaycastHit rayHit;
+        const float Search_Adjust = 2.0f;//サーチ範囲調整
+
         //プレイヤーが範囲に入ったら
         if (other.CompareTag("Player"))
         {
-
-            const float Search_Adjust = 2.0f;//サーチ範囲調整
             //　主人公の方向
             Vector3 playerDirection = other.transform.position - transform.position;
             //　敵の前方からの主人公の方向
-            var angle = Vector3.Angle(transform.right, playerDirection);
+            var angle = Vector2.Angle(transform.forward, playerDirection);
 
-            Ray ray = new Ray(transform.position,playerDirection);
+            Ray ray = new Ray(transform.position, playerDirection);
 
-            if (Physics.Raycast(ray.origin, ray.direction* serchRadius, out hit))
+            if (Physics.Raycast(ray.origin, ray.direction * serchRadius, out rayHit))
             {
                 //Rayが最初に当たった物体
-                if (hit.collider.CompareTag("Player"))
+                if (rayHit.collider.CompareTag("Player"))
                 {
                     //　サーチする角度内だったら発見
                     if (angle <= searchAngle * Search_Adjust)
                     {
                         playerSearchHit = true;
                         cameraStop = true;
-                        barCtrl.SetHP(10.0f);
-                        alertAudio.Play();
 
                     }
                     else if (angle >= searchAngle * Search_Adjust)
                     {
                         playerSearchHit = false;
                         cameraStop = false;
+                        hitSec = 0;
+
                     }
 
                 }
 
             }
-           
-        }
 
+        }
+ 
         if (other.CompareTag("PlayerAttack"))
         {
             cameraStop = true;
@@ -110,8 +117,10 @@ public class SurveillanceCamera : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            playerSearchHit = false;
             cameraStop = false;
-            
+            hitSec = 0;
+
         }
     }
 
@@ -182,32 +191,10 @@ public class SurveillanceCamera : MonoBehaviour
     /// プレイヤーが監視カメラに引っかかったか
     /// </summary>
     /// <returns></returns>
-    private static bool GetSearchHit()
+    public static bool GetSearchHit()
     {
         return playerSearchHit;
     }
-
-    /// <summary>
-    /// 点滅コルーチン
-    /// </summary>
-    /// <returns></returns>
-    //IEnumerator ColorCoroutin()
-    //{
-
-    //    while (true)
-    //    {
-    //        yield return new WaitForEndOfFrame();
-    //        alpha = Mathf.Abs(Mathf.Sin(Time.time / laserRebootTime));
-
-    //        Color _color = laserMesh.material.color;
-
-    //        _color.a = alpha;
-
-    //        laserMesh.material.color = _color;
-
-    //    }
-    //}
-
 
 
 #if UNITY_EDITOR
@@ -221,29 +208,29 @@ public class SurveillanceCamera : MonoBehaviour
         Handles.DrawSolidArc(
             transform.position,
             transform.up,
-            (Quaternion.Euler(0, 0, 0f) * transform.right),
+            (Quaternion.Euler(0, 0, 0f) * transform.forward),
             searchAngle * 2f,
             serchRadius);
 
         Handles.DrawSolidArc(
             transform.position,
             transform.up,
-            (Quaternion.Euler(0, 0, 0f) * transform.right),
+            (Quaternion.Euler(0, 0, 0f) * transform.forward),
             searchAngle * -2f,
             serchRadius);
 
 
         Handles.DrawSolidArc(
            transform.position,
-           transform.forward,
-           (Quaternion.Euler(0, 0, 0f) * transform.right),
+           transform.right,
+           (Quaternion.Euler(0, 0, 0f) * transform.forward),
            searchAngle * 2f,
            serchRadius);
 
         Handles.DrawSolidArc(
             transform.position,
-            transform.forward,
-            (Quaternion.Euler(0, 0, 0f) * transform.right),
+            transform.right,
+            (Quaternion.Euler(0, 0, 0f) * transform.forward),
             searchAngle * -2f,
             serchRadius);
     }
