@@ -34,6 +34,9 @@ public class PlayerMove : MonoBehaviour
             ghostSystem.SetResetFlag(false);
         }
 
+        if (!ghostSystem.GetMoveFlag())
+            velocity = Vector3.zero;
+
         transform.position += velocity;
 
         DecideSpeed();

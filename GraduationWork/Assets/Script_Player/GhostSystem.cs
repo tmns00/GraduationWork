@@ -134,6 +134,7 @@ public class GhostSystem : MonoBehaviour
         reBodyUI.enabled = false;
 
         isReset = true;
+        canMove = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -181,7 +182,6 @@ public class GhostSystem : MonoBehaviour
             PauseSystem.SetPauseFlag(true);
             //startTime = Time.deltaTime;
             ForcedReturn();
-            return;
         }
 
         //Å‘å’l‚æ‚è‘å‚«‚­‚È‚Á‚Ä‚µ‚Ü‚Á‚½‚ÉØ‚èÌ‚Ä
@@ -203,6 +203,7 @@ public class GhostSystem : MonoBehaviour
     //‹­§“I‚É–ß‚·
     void ForcedReturn()
     {
+        canMove = false;
         //transform.position = body.transform.position;
         float interpolateValue = (Time.deltaTime - startTime) / returnDist * returnSpeed;
         transform.position = Vector3.Lerp(forcedPosition, body.transform.position, interpolateValue);
