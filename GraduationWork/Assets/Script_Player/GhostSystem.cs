@@ -42,7 +42,6 @@ public class GhostSystem : MonoBehaviour
     //検知するためのエリア
     public GameObject searchAreaObj;
     //検知エリアスクリプト
-    [SerializeField]
     private SearchArea searchArea;
 
     //警戒度ゲージ
