@@ -1091,7 +1091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &275089800
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 758c493a24bad1c4bb8999f09e292edd, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2146,7 +2146,7 @@ MonoBehaviour:
   bodyCol: {fileID: 658554154}
   toGhostUI: {fileID: 1344095626}
   reBodyUI: {fileID: 383189255}
-  actionUI: {fileID: 0}
+  actionUI: {fileID: 275089801}
 --- !u!114 &658554152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,7 +3596,7 @@ PrefabInstance:
     - target: {fileID: 5554417737203999860, guid: 041b212520716d7439d25a6646bd3c1e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5554417737203999860, guid: 041b212520716d7439d25a6646bd3c1e,
         type: 3}
@@ -8120,7 +8120,7 @@ RectTransform:
   - {fileID: 915234620}
   - {fileID: 893925442}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10741,7 +10741,7 @@ PrefabInstance:
     - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8659418231282669474, guid: 020e94bc9b04f2b4a849098d9478a901,
         type: 3}

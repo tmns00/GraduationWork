@@ -71,6 +71,7 @@ public class GhostSystem : MonoBehaviour
         ghostHP = maxHP;
         toGhostUI.enabled = true;
         reBodyUI.enabled = false;
+        actionUI.enabled = false;
         isReset = false;
         canMove = true;
     }
@@ -144,6 +145,9 @@ public class GhostSystem : MonoBehaviour
             body = other.gameObject;
             reBodyUI.enabled = true;
         }
+
+        if (other.gameObject.tag == "Gimmick")
+            actionUI.enabled = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -153,6 +157,9 @@ public class GhostSystem : MonoBehaviour
             isReturn = false;
             reBodyUI.enabled = false;
         }
+
+        if (other.gameObject.tag == "Gimmick")
+            actionUI.enabled = false;
     }
 
     //—H‘Ìƒtƒ‰ƒO‚ÌŽæ“¾
