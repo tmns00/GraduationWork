@@ -19,9 +19,9 @@ public class SurveillanceCamera : MonoBehaviour
 
     float sec;
     float hitSec = 0;//発見された時一定間隔でゲージ増加させる
-    static bool playerSearchHit;//プレイヤーが監視カメラの範囲に触れた
+    private static bool playerSearchHit;//プレイヤーが監視カメラの範囲に触れた
     bool cameraStop = false; //憑依された際の機能ストップ
-    bool gimkPower = true;//ギミックの電力
+    private bool camGimkPower = true;//ギミックの電力
 
     Quaternion defaultRotation;
     AudioSource alertAudio; //アラート音
@@ -37,11 +37,12 @@ public class SurveillanceCamera : MonoBehaviour
         defaultRotation = transform.rotation;
         alertAudio = GetComponent<AudioSource>();
 
+        if (barCtrl == null) return;
     }
 
     private void Update()
     {
-        if (!gimkPower)
+        if (!camGimkPower)
         {
             searchCollider.enabled = false;
             return; //シャットダウンしたら下の処理しない
@@ -184,7 +185,7 @@ public class SurveillanceCamera : MonoBehaviour
 
     public void ShutDown()
     {
-        gimkPower = false;
+        camGimkPower = false;
     }
 
     /// <summary>

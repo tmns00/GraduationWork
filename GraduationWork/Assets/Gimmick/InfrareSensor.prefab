@@ -64,11 +64,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecde4870ae0cf046be429036f4374e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserIrradiation: 1
   laser: {fileID: 4905951051972751968}
   laserMaterial: {fileID: 2100000, guid: 5403f6c5e0d6ed142abbbed285e613a7, type: 2}
   setRebootTime: 10
   audioClip: {fileID: 8300000, guid: e781ff42c052fe44ea7e40f63fb8bbfd, type: 3}
+  boxCol: {fileID: 4905951051972751970}
   barCtrl: {fileID: 0}
 --- !u!82 &4905951051822818003
 AudioSource:

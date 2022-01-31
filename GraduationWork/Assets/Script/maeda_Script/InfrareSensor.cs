@@ -5,50 +5,56 @@ using UnityEditor;
 
 public class InfrareSensor : MonoBehaviour
 {
-    [SerializeField] bool laserIrradiation = true;//レーザー照射
-    [SerializeField]GameObject laser = null;//赤外線マテリアル
+    bool laserIrradiation = true;//レーザー照射
+    [SerializeField]GameObject[] laser = new GameObject[3];//赤外線オブジェ
     [SerializeField] Material laserMaterial;
     static bool playerLaserHit;//プレイヤーがレーザーに触れた
     [SerializeField] float setRebootTime;//再起動にかかる時間
     [SerializeField] AudioClip audioClip;
     AudioSource audioSource;
-    BoxCollider boxCol;
+    [SerializeField]BoxCollider boxCol;
     float alpha = 1;
     float laserRebootTime;
-    bool gimkPower = true;//ギミックの電力
-
+    bool gimkPower;//ギミックの電力
+    
     [SerializeField]
     private BarCtrl barCtrl;
 
     private void Start()
     {
-        boxCol = GameObject.Find("Sasers").GetComponentInChildren<BoxCollider>();
+        gimkPower = true;
+        boxCol = transform.Find("Sasers").GetComponent<BoxCollider>();
         audioSource = GetComponent<AudioSource>();
         laserRebootTime = setRebootTime;
-        laser.GetComponent<Renderer>().material = laserMaterial;
 
-
+        for(int i = 0; i < 2; i++)
+        {
+            laser[i].GetComponent<Renderer>().material.color = 
+                laserMaterial.color;
+        }
     }
+    
 
     // Update is called once per frame
     void Update()
     {
         OnLaserIrradiation();
-        laser.GetComponent<Renderer>().material.color = laserMaterial.color;
+        laser[0].GetComponent<Renderer>().material.color = laserMaterial.color;
+        laser[1].GetComponent<Renderer>().material.color = laserMaterial.color;
+        laser[2].GetComponent<Renderer>().material.color = laserMaterial.color;
 
-        if (!gimkPower)
+        if (!gimkPower) //シャットダウン
         {
-            boxCol.enabled = false;
-            alpha = 0;
+            LaserPowerOFF();
             return; //シャットダウンしたら下の処理しない
         }
 
-        //if (playerLaserHit)
+        //デバッグ用
+        //if (Input.GetKeyDown(KeyCode.G))
         //{
-        //    Debug.Log("感知: ");
+        //    LaserPowerOFF();
         //}
 
-    
         if (laserIrradiation) return;
 
         if(laserRebootTime <= 3.0f)
@@ -70,14 +76,12 @@ public class InfrareSensor : MonoBehaviour
             laserMaterial.color.g,
             laserMaterial.color.b,
             alpha);
-
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!gimkPower)
-            return;
+        if (!gimkPower) return;
 
         if(other.CompareTag("Player"))
         {
@@ -89,9 +93,7 @@ public class InfrareSensor : MonoBehaviour
 
         if (other.CompareTag("PlayerAttack"))
         {
-            laserIrradiation = false;
-            alpha = 0;
-
+            LaserPowerOFF();
         }
     }
 
@@ -105,7 +107,7 @@ public class InfrareSensor : MonoBehaviour
     /// プレイヤー感知
     /// </summary>
     /// <returns></returns>
-    public static bool GetPlayerHit()
+    public static bool GetLaserHit()
     {
         return playerLaserHit;
     }
@@ -114,7 +116,7 @@ public class InfrareSensor : MonoBehaviour
     /// 赤外線レーザーの照射スイッチ
     /// </summary>
     /// <param name="IrradiationSwitch"></param>
-    public void InfraredIrradiation(bool _irradiationSwitch)
+    public void SetInfraredIrradiation(bool _irradiationSwitch)
     {
         laserIrradiation = _irradiationSwitch;
     }
@@ -125,8 +127,6 @@ public class InfrareSensor : MonoBehaviour
     private void Reboot()
     {
         laserRebootTime -= Time.deltaTime;
-
-        //Debug.Log(laserRebootTime);
         
         //再起動
         if (laserRebootTime <= 0.0)
@@ -134,7 +134,7 @@ public class InfrareSensor : MonoBehaviour
             alpha = 1;
             laserRebootTime = setRebootTime;
             StopCoroutine("ColorCoroutin");
-            InfraredIrradiation(true);
+            SetInfraredIrradiation(true);
         }
 
     }
@@ -144,6 +144,20 @@ public class InfrareSensor : MonoBehaviour
         gimkPower = false;
     }
 
+    public bool GetPower()
+    {
+        return gimkPower;
+    }
+
+    /// <summary>
+    /// レーザー消滅時の処理
+    /// </summary>
+    private void LaserPowerOFF()
+    {
+        boxCol.enabled = false;
+        laserIrradiation = false;
+        alpha = 0;
+    }
 
     /// <summary>
     /// 点滅コルーチン
@@ -158,11 +172,10 @@ public class InfrareSensor : MonoBehaviour
             alpha = Mathf.Abs( Mathf.Sin(Time.time / laserRebootTime)) ;
 
             Color _color = laserMaterial.color;
-
             _color.a = alpha;
-
             laserMaterial.color = _color;
-            
+
+
         }
     }
 
