@@ -38,7 +38,7 @@ public class GimmickManager : MonoBehaviour
         if (HitPlayer())
         {           
             Debug.Log(audioPlayTime);
-            //barCtrl.SetHP(10.0f);
+            barCtrl.SetHP(10.0f);
 
             if (alertAudioFlag)
             {
