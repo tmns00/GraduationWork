@@ -8,6 +8,11 @@ public class EscapeArea : MonoBehaviour
     [SerializeField]
     private SceneSystem sceneSystem;
 
+    void Start()
+    {
+        sceneSystem = GameObject.Find("GameManager").GetComponent<SceneSystem>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //‚¨•óæ“¾ó‘Ô‚ÅƒvƒŒƒCƒ„[‚ªN“ü
