@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class GimmickManager : MonoBehaviour
 {
-    //[SerializeField] AudioClip audioClip;
-    //[SerializeField] BarCtrl barCtrl;
-
+    [SerializeField] BarCtrl barCtrl;
+    [SerializeField] AudioClip audioClip;
     GameObject[] SCameras;
     GameObject[] ISensors;
     GameObject[] PB_SCam;
@@ -17,6 +16,8 @@ public class GimmickManager : MonoBehaviour
     InfrareSensor infrSensor;
     SurveillanceCamera survCamera;
     AudioSource alertAudio; //アラート音
+    int audioPlayTime = 0;
+    bool alertAudioFlag;
 
     // Start is called before the first frame update
     void Start()
@@ -28,28 +29,47 @@ public class GimmickManager : MonoBehaviour
         cameraNum = SCameras.Length;
         sensorNum = ISensors.Length;
 
-       // alertAudio = GetComponent<AudioSource>();
-       
+        alertAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (HitPlayer())
-        {
-            Debug.Log("発見");
+        {           
+            Debug.Log(audioPlayTime);
             //barCtrl.SetHP(10.0f);
-            //alertAudio.PlayOneShot(audioClip);
+
+            if (alertAudioFlag)
+            {
+                alertAudio.PlayOneShot(audioClip);
+                alertAudioFlag = false;
+
+            }
+
         }
     }
+
 
     bool HitPlayer()
     {
         var hit = false;
-        if (SurveillanceCamera.GetSearchHit()||
-            InfrareSensor.GetLaserHit())
+        if (SurveillanceCamera.GetSearchHit()) //監視カメラに見つかったら
         {
             hit = true;
+            audioPlayTime = audioPlayTime + 1;
+
+            if (audioPlayTime == 590)
+            {
+                audioPlayTime = 0;
+                alertAudioFlag = true;
+            }
+
+        }
+        else if( InfrareSensor.GetLaserHit())//センサーに触れたら
+        {
+            hit = true;
+            alertAudioFlag = true;
         }
      
         return hit;

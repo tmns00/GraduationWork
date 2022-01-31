@@ -6,8 +6,8 @@ public class SecurityGate : MonoBehaviour
 {
     bool backWayFlag = false; //脱出フラグ
 
-    InfrareSensor infrareSensor;
-    GameObject GateObj;
+    [SerializeField] InfrareSensor infrareSensor;
+    [SerializeField] GameObject GateObj;
 
 
     // Start is called before the first frame update
@@ -23,9 +23,12 @@ public class SecurityGate : MonoBehaviour
         backWayFlag = RoundTripManager.GetIsBackWay();
 
         if (!backWayFlag) return; //脱出フラグ
-        if (infrareSensor.GetPower()) return; //センサーの電源がOFFの時
+        if (infrareSensor.GetPower()) //センサーの電源がONの時
+        {
+            GateObj.SetActive(true);
 
-        GateObj.SetActive(true);
+        }
+
 
     }
 }

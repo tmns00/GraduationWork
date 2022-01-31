@@ -85,9 +85,9 @@ public class InfrareSensor : MonoBehaviour
 
         if(other.CompareTag("Player"))
         {
-            barCtrl.SetHP(10.0f);
+            //barCtrl.SetHP(10.0f);
             playerLaserHit = true;
-            audioSource.PlayOneShot(audioClip);
+            //audioSource.PlayOneShot(audioClip);
 
         }
 
