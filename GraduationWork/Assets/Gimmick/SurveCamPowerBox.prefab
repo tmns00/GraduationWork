@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1646129897988917899}
   m_Layer: 0
   m_Name: SurveCamPowerBox
-  m_TagString: Untagged
+  m_TagString: PB_SurveCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

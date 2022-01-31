@@ -10,7 +10,10 @@ TagManager:
   - Enemy
   - PlayerAttack
   - Wall
-  - Gimmick
+  - InfraredSensor
+  - SurveillanceCamera
+  - PB_Sensor
+  - PB_SurveCamera
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8670528855436643917}
   m_Layer: 0
   m_Name: SensorPowerBox
-  m_TagString: Untagged
+  m_TagString: PB_Sensor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daeeab1824a840743b47272fcff962c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infrareSensor: {fileID: 0}
+  sensorObj: {fileID: 0}
 --- !u!54 &8670528855436643917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4780499873643510494}
   m_Layer: 0
   m_Name: ButtonTouchAria
-  m_TagString: Gimmick
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
