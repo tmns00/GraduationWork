@@ -9,6 +9,13 @@ public class SceneSystem : MonoBehaviour
 
     public string sceneName;
 
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +26,7 @@ public class SceneSystem : MonoBehaviour
 
         if (fade.IsFadeOutComplete())
         {
+            audioSource.Stop();
             SceneManager.LoadScene(sceneName);
         }
     }
