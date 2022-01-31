@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
 
     private float moveVert;
     private float moveHol;
+    private Vector3 velocity;
 
     private Vector3 playerPos;
 
@@ -18,16 +19,29 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         playerPos = transform.position;
+
+        velocity = Vector3.zero;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        velocity = new Vector3(moveHol, 0.0f, moveVert);
+
+        if (ghostSystem.GetResetFlag())
+        {
+            velocity = Vector3.zero;
+            ghostSystem.SetResetFlag(false);
+        }
+
+        if (!ghostSystem.GetMoveFlag())
+            velocity = Vector3.zero;
+
+        transform.position += velocity;
+
         DecideSpeed();
 
         MoveInput();
-
-        transform.position += new Vector3(moveHol, 0.0f, moveVert);
 
         Vector3 diff = transform.position - playerPos;
 

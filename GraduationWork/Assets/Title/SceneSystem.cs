@@ -8,6 +8,17 @@ public class SceneSystem : MonoBehaviour
     [Header("フェード")] public Fadeimage fade;
 
     public string sceneName;
+    AudioSource audioSource;
+
+    private bool startOnce = true;
+    private bool playOnce = true;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        startOnce = true;
+        playOnce = true;
+    }
 
     AudioSource audioSource;
 
@@ -22,6 +33,18 @@ public class SceneSystem : MonoBehaviour
         if (Input.GetButtonDown("ToScene") && SceneManager.GetActiveScene().name != "Game")
         {
             SceneChange();
+        }
+
+        if(startOnce && SceneManager.GetActiveScene().name == "Game")
+        {
+            audioSource.Stop();
+            startOnce = false;
+        }
+
+        if(playOnce && RoundTripManager.GetIsBackWay())
+        {
+            audioSource.Play();
+            playOnce = false;
         }
 
         if (fade.IsFadeOutComplete())

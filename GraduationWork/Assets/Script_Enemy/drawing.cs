@@ -19,6 +19,7 @@ public class drawing : MonoBehaviour
     private fan _fanGizumo;
 
     public enemyMove em;
+    public Fear fear;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +32,29 @@ public class drawing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(em.isShot)
+        if(fear.FearLevel==0)
         {
-            _sight_range = 3;
+            if(em.isShot)
+            {
+                _sight_range = 3;
+            }
+            if(!em.isShot)
+            {
+                _sight_range = 6;
+            }
         }
-        else
+        if (fear.FearLevel == 1)
         {
-            _sight_range = 6;
+            if (em.isShot)
+            {
+                _sight_range = 4.5f;
+            }
+            if (!em.isShot)
+            {
+                _sight_range = 6;
+            }
         }
+       
         _fanGizumo.RefreshGizumo(ref _gizumo, this.gameObject, _sight_angle, _sight_range);
     }
 }

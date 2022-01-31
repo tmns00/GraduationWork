@@ -13,10 +13,19 @@ public class Attacked : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
+        if (other.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
         {
             barCtrl.SetHP(20.0f);
             respawnPlayer.Respawn();
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Enemy" && !ghostSystem.GetIsGhost())
+    //    {
+    //        barCtrl.SetHP(20.0f);
+    //        respawnPlayer.Respawn();
+    //    }
+    //}
 }
