@@ -38,6 +38,8 @@ public class enemyMove : MonoBehaviour
     RaycastHit hit;
     [SerializeField]
     private GameObject DeadBody;
+    bool isRunaway;
+    int choose;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -56,6 +58,8 @@ public class enemyMove : MonoBehaviour
         sphereCollider = GetComponent<SphereCollider>();
         isSerch = false;
         PlayerCatch = false;
+        isRunaway = false;
+        choose = Random.Range(0, 2);
     }
 
 
@@ -71,12 +75,13 @@ public class enemyMove : MonoBehaviour
         // 配列内の次の位置を目標地点に設定し、
         // 必要ならば出発地点にもどります
         destPoint = (destPoint + 1) % points.Length;
+
     }
 
 
     void Update()
     {
-        isShot = ht.isFear;
+       
         //Debug.Log(fear.FearLevel);
         if (isSerch)
         {
@@ -84,133 +89,19 @@ public class enemyMove : MonoBehaviour
             angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
 
         }
-        
-
-        switch (fear.FearLevel)
+       
+        switch (choose)
         {
             case 0:
-                // エージェントが現目標地点に近づいてきたら、
-                // 次の目標地点を選択します
-                if (!isAttack)
-                {
-                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                        GotoNextPoint();
-                }
-                //索敵範囲内にPlayerが入ったらおう
-                if (isAttack)
-                    agent.SetDestination(Player.transform.position);
-                //索敵範囲外に行った後1秒間追跡する
-                if (isTracking)
-                {
-                    time += 1 / 60f;
-                    if (time >= trackingstop)
-                    {
-                        isAttack = false;
-                        isTracking = false;
-                        isSerch = false;
-                    }
-                }
-                if (!isTracking)
-                    time = 0;
-
-                if (isShot)
-                {
-                    times += 1 / 60f;
-                    if (times >= shottime)
-                    {
-                        times = 0;
-                        ht.isFear = false;
-                    }
-                }
-                if (isShot)
-                {
-                    agent.speed = 1.5f;
-                    sphereCollider.radius = 3;
-                }
-                if (!isShot)
-                {
-                    agent.speed = 3.5f;
-                    sphereCollider.radius = 6;
-                }
-
-
+                Patrol();
+                isShot = ht.isFear;
                 break;
-
-
             case 1:
-                // エージェントが現目標地点に近づいてきたら、
-                // 次の目標地点を選択します
-                if (!isAttack)
-                {
-                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                        GotoNextPoint();
-                }
-                //索敵範囲内にPlayerが入ったらおう
-                if (isAttack)
-                    agent.SetDestination(Player.transform.position);
-                //索敵範囲外に行った後1秒間追跡する
-                if (isTracking)
-                {
-                    time += 1 / 60f;
-                    if (time >= trackingstop)
-                    {
-                        isAttack = false;
-                        isTracking = false;
-                        isSerch = false;
-                    }
-                }
-                if (!isTracking)
-                    time = 0;
-
-                if (isShot)
-                {
-                    times += 1 / 60f;
-                    if (times >= shottime)
-                    {
-                        times = 0;
-                        ht.isFear = false;
-                    }
-                }
-                if (isShot)
-                {
-                    agent.speed = 2.5f;
-                    sphereCollider.radius = 4.5f;
-                }
-                if (!isShot)
-                {
-                    agent.speed = 3.5f;
-                    sphereCollider.radius = 6;
-                }
-
-                break;
-            case 2:
-                PlayerCatch = true;
-                // エージェントが現目標地点に近づいてきたら、
-                // 次の目標地点を選択します
-                if (!isAttack)
-                {
-                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                        GotoNextPoint();
-                }
-                //索敵範囲内にPlayerが入ったらおう
-                if (isAttack)
-                    agent.SetDestination(Player.transform.position);
-                //索敵範囲外に行った後1秒間追跡する
-                if (isTracking)
-                {
-                    time += 1 / 60f;
-                    if (time >= trackingstop)
-                    {
-                        isAttack = false;
-                        isTracking = false;
-                        isSerch = false;
-                    }
-                }
-                if (!isTracking)
-                    time = 0;
-
+                RunAway();
                 break;
         }
+
+
 
 
     }
@@ -219,7 +110,7 @@ public class enemyMove : MonoBehaviour
     {
         var distance = positionDiff.magnitude;
         var direction = positionDiff.normalized;
-       
+
 
         if (other.gameObject.tag == "Player")
         {
@@ -248,59 +139,243 @@ public class enemyMove : MonoBehaviour
                 }
             }
         }
-        if (fear.FearLevel >= 1)
+        if (fear.FearLevel >= 1 && choose == 0)
         {
 
-                if (other.gameObject.tag == "Ghost")
+            if (other.gameObject.tag == "Ghost")
+            {
+
+
+                if (angle <= searchAngle)
                 {
 
-
-                    if (angle <= searchAngle)
+                    if (Physics.Raycast(transform.position, direction, out hit, distance))
                     {
-                      
-                        if (Physics.Raycast(transform.position, direction, out hit, distance))
+                        if (hit.collider.gameObject.tag == ("Wall"))
                         {
-                            if (hit.collider.gameObject.tag == ("Wall"))
-                            {
-                                isAttack = false;
-                            }
-                            else
-                            {
-                                isAttack = true;
-                            }
+                            isAttack = false;
                         }
-
+                        else
+                        {
+                            isAttack = true;
+                        }
                     }
 
-                    if (other.gameObject.tag == "Ghost" && isAttack)
+                }
+
+                if (other.gameObject.tag == "Ghost" && isAttack)
+                {
+                    if (angle >= searchAngle)
                     {
-                        if (angle >= searchAngle)
-                        {
-                            isTracking = true;
-                        }
+                        isTracking = true;
                     }
                 }
-        }
-        if(other.gameObject.tag=="DeadBody")
-        {
-            DeadBody = GameObject.Find("DeadBody(Clone)");
-            DeadBodyDiff = DeadBody.transform.position - transform.position; //敵とプレイヤーの距離
-            Deadangle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
-            if (Deadangle <= searchAngle)
-            {
-                
-                agent.SetDestination(DeadBody.transform.position);
             }
         }
+        if (choose == 1)
+        {
+            if (other.gameObject.tag == "Ghost")
+            {
+                isSerch = true;
+                if (angle <= searchAngle)
+                {
 
+                    if (Physics.Raycast(transform.position, direction, out hit, distance))
+                    {
+                        if (hit.collider.gameObject.tag == ("Wall"))
+                        {
+                            isRunaway = false;
+                        }
+                        else
+                        {
+                            isRunaway = true;
+                        }
+                    }
+
+                }
+
+                if (other.gameObject.tag == "Ghost" && isAttack)
+                {
+                    if (angle >= searchAngle)
+                    {
+                        isTracking = true;
+                    }
+                }
+            }
+            if (other.gameObject.tag == "DeadBody")
+            {
+                DeadBody = GameObject.Find("DeadBody(Clone)");
+                DeadBodyDiff = DeadBody.transform.position - transform.position; //敵とプレイヤーの距離
+                Deadangle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
+                if (Deadangle <= searchAngle)
+                {
+
+                    agent.SetDestination(DeadBody.transform.position);
+                }
+            }
+
+        }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (isAttack)
-            isTracking = true;
+        private void OnTriggerExit(Collider other)
+        {
+            if (isAttack)
+                isTracking = true;
 
 
+        }
+        void RunAway()
+        {
+
+            if (isRunaway)
+            {
+                time += 1 / 60f;
+                if (Player.transform.position.x > transform.position.x)
+                {
+                    agent.SetDestination(Player.transform.position * -1);
+                }
+                if (Player.transform.position.x < transform.position.x)
+                {
+                    agent.SetDestination(Player.transform.position * 3);
+                }
+                if (time >= trackingstop)
+                {
+                    isRunaway = false;
+                }
+            }
+            if (!isTracking && !isRunaway)
+                time = 0;
+            if (isRunaway)
+                agent.speed = 6;
+            if (!isRunaway)
+                agent.speed = 3.5f;
+        }
+        void Patrol()
+        {
+            switch (fear.FearLevel)
+            {
+                case 0:
+                    // エージェントが現目標地点に近づいてきたら、
+                    // 次の目標地点を選択します
+                    if (!isAttack)
+                    {
+                        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                            GotoNextPoint();
+                    }
+                    //索敵範囲内にPlayerが入ったらおう
+                    if (isAttack)
+                        agent.SetDestination(Player.transform.position);
+                    //索敵範囲外に行った後1秒間追跡する
+                    if (isTracking)
+                    {
+                        time += 1 / 60f;
+                        if (time >= trackingstop)
+                        {
+                            isAttack = false;
+                            isTracking = false;
+                            isSerch = false;
+                        }
+                    }
+                    if (!isTracking)
+                        time = 0;
+
+                    if (isShot)
+                    {
+                        times += 1 / 60f;
+                        if (times >= shottime)
+                        {
+                            times = 0;
+                            ht.isFear = false;
+                        }
+                    }
+                    if (isShot)
+                    {
+                        agent.speed = 1.5f;
+                        sphereCollider.radius = 3;
+                    }
+                    if (!isShot)
+                    {
+                        agent.speed = 3.5f;
+                        sphereCollider.radius = 6;
+                    }
+
+
+                    break;
+
+
+                case 1:
+                    // エージェントが現目標地点に近づいてきたら、
+                    // 次の目標地点を選択します
+                    if (!isAttack)
+                    {
+                        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                            GotoNextPoint();
+                    }
+                    //索敵範囲内にPlayerが入ったらおう
+                    if (isAttack)
+                        agent.SetDestination(Player.transform.position);
+                    //索敵範囲外に行った後1秒間追跡する
+                    if (isTracking)
+                    {
+                        time += 1 / 60f;
+                        if (time >= trackingstop)
+                        {
+                            isAttack = false;
+                            isTracking = false;
+                            isSerch = false;
+                        }
+                    }
+                    if (!isTracking)
+                        time = 0;
+
+                    if (isShot)
+                    {
+                        times += 1 / 60f;
+                        if (times >= shottime)
+                        {
+                            times = 0;
+                            ht.isFear = false;
+                        }
+                    }
+                    if (isShot)
+                    {
+                        agent.speed = 2.5f;
+                        sphereCollider.radius = 4.5f;
+                    }
+                    if (!isShot)
+                    {
+                        agent.speed = 3.5f;
+                        sphereCollider.radius = 6;
+                    }
+
+                    break;
+                case 2:
+                    PlayerCatch = true;
+                    // エージェントが現目標地点に近づいてきたら、
+                    // 次の目標地点を選択します
+                    if (!isAttack)
+                    {
+                        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                            GotoNextPoint();
+                    }
+                    //索敵範囲内にPlayerが入ったらおう
+                    if (isAttack)
+                        agent.SetDestination(Player.transform.position);
+                    //索敵範囲外に行った後1秒間追跡する
+                    if (isTracking)
+                    {
+                        time += 1 / 60f;
+                        if (time >= trackingstop)
+                        {
+                            isAttack = false;
+                            isTracking = false;
+                            isSerch = false;
+                        }
+                    }
+                    if (!isTracking)
+                        time = 0;
+
+                    break;
+            }
+        }
     }
-
-}

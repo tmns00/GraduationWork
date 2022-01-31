@@ -46,7 +46,7 @@ public class Haunted : MonoBehaviour
         {
             if (other.gameObject.tag == "Ghost")
             {
-                fear.Fearvalue -= 5;
+                fear.Fearvalue += 5;
                 isFear = true;
             }
         }
