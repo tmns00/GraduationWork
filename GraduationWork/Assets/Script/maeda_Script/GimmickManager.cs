@@ -18,6 +18,9 @@ public class GimmickManager : MonoBehaviour
     AudioSource alertAudio; //アラート音
     int audioPlayTime = 0;
     bool alertAudioFlag;
+    bool hitWaitFlag;
+    float hitWaitCount;
+    const float sethitWaitCount = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -30,23 +33,20 @@ public class GimmickManager : MonoBehaviour
         sensorNum = ISensors.Length;
 
         alertAudio = GetComponent<AudioSource>();
+        hitWaitCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (HitPlayer())
-        {           
-            Debug.Log(audioPlayTime);
-            barCtrl.SetHP(10.0f);
+        {
 
-            if (alertAudioFlag)
-            {
-                alertAudio.PlayOneShot(audioClip);
-                alertAudioFlag = false;
-
-            }
-
+            HitCoroutin();
+        }
+        else
+        {
+            hitWaitFlag = false;
         }
     }
 
@@ -57,22 +57,40 @@ public class GimmickManager : MonoBehaviour
         if (SurveillanceCamera.GetSearchHit()) //監視カメラに見つかったら
         {
             hit = true;
-            audioPlayTime = audioPlayTime + 1;
-
-            if (audioPlayTime == 590)
-            {
-                audioPlayTime = 0;
-                alertAudioFlag = true;
-            }
 
         }
         else if( InfrareSensor.GetLaserHit())//センサーに触れたら
         {
             hit = true;
-            alertAudioFlag = true;
         }
      
         return hit;
+    }
+
+
+    void HitCoroutin()
+    {
+        if (hitWaitFlag)
+        {
+            hitWaitCount += 0.1f;
+
+            if(hitWaitCount >= sethitWaitCount)
+            {
+                hitWaitFlag = false;
+                hitWaitCount = 0;
+            }
+
+            return;
+        }
+
+        barCtrl.SetHP(10.0f);
+
+        alertAudio.Stop();
+        alertAudio.PlayOneShot(audioClip);
+
+        hitWaitFlag = true;
+
+
     }
 
 }
