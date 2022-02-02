@@ -63,11 +63,9 @@ public class EscapeAreaManager : MonoBehaviour
 
     void MoveToCamera()
     {
-        Debug.Log("エリアカメラ");
         float rate = countTime / moveTime;
         camera.transform.position = Vector3.Lerp(startPos, areaPos, rate);
 
-        Debug.Log(rate);
         if(rate >=1.0f)
         {
             isToArea = false;
@@ -77,11 +75,9 @@ public class EscapeAreaManager : MonoBehaviour
 
     void MoveReCamera()
     {
-        Debug.Log("戻りカメラ");
         float rate = countTime / moveTime;
         camera.transform.position = Vector3.Lerp(areaPos, startPos, rate);
 
-        Debug.Log(rate);
         if (rate >= 1.0f)
         {
             moveOnce = false;

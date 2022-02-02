@@ -60,6 +60,7 @@ public class enemyMove : MonoBehaviour
         PlayerCatch = false;
         isRunaway = false;
         choose = Random.Range(0, 2);
+        trackingstop = 3;
     }
 
 
@@ -81,7 +82,7 @@ public class enemyMove : MonoBehaviour
 
     void Update()
     {
-       
+
         //Debug.Log(fear.FearLevel);
         if (isSerch)
         {
@@ -89,7 +90,7 @@ public class enemyMove : MonoBehaviour
             angle = Vector3.Angle(transform.forward, positionDiff); //敵からみたプレイヤーの方向
 
         }
-       
+
         switch (choose)
         {
             case 0:
@@ -217,165 +218,187 @@ public class enemyMove : MonoBehaviour
         }
     }
 
-        private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
+    {
+        if (isAttack)
+            isTracking = true;
+
+
+    }
+    void RunAway()
+    {
+        if (!isAttack && !isRunaway)
         {
-            if (isAttack)
-                isTracking = true;
-
-
+            if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                GotoNextPoint();
         }
-        void RunAway()
+        //索敵範囲内にPlayerが入ったらおう
+        if (isAttack && !isRunaway)
+            agent.SetDestination(Player.transform.position);
+        //索敵範囲外に行った後1秒間追跡する
+        if (isTracking)
         {
-
-            if (isRunaway)
+            time += 1 / 60f;
+            if (time >= trackingstop)
             {
-                time += 1 / 60f;
-                if (Player.transform.position.x > transform.position.x)
-                {
-                    agent.SetDestination(Player.transform.position * -1);
-                }
-                if (Player.transform.position.x < transform.position.x)
-                {
-                    agent.SetDestination(Player.transform.position * 3);
-                }
-                if (time >= trackingstop)
-                {
-                    isRunaway = false;
-                }
+                isAttack = false;
+                isTracking = false;
+                isSerch = false;
             }
-            if (!isTracking && !isRunaway)
-                time = 0;
-            if (isRunaway)
-                agent.speed = 6;
-            if (!isRunaway)
-                agent.speed = 3.5f;
         }
-        void Patrol()
+      
+
+        if (isRunaway)
         {
-            switch (fear.FearLevel)
+            Debug.Log(agent.speed);
+            time += 1 / 60f;
+            agent.speed = 13;
+            if (Player.transform.position.x > transform.position.x)
             {
-                case 0:
-                    // エージェントが現目標地点に近づいてきたら、
-                    // 次の目標地点を選択します
-                    if (!isAttack)
-                    {
-                        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                            GotoNextPoint();
-                    }
-                    //索敵範囲内にPlayerが入ったらおう
-                    if (isAttack)
-                        agent.SetDestination(Player.transform.position);
-                    //索敵範囲外に行った後1秒間追跡する
-                    if (isTracking)
-                    {
-                        time += 1 / 60f;
-                        if (time >= trackingstop)
-                        {
-                            isAttack = false;
-                            isTracking = false;
-                            isSerch = false;
-                        }
-                    }
-                    if (!isTracking)
-                        time = 0;
-
-                    if (isShot)
-                    {
-                        times += 1 / 60f;
-                        if (times >= shottime)
-                        {
-                            times = 0;
-                            ht.isFear = false;
-                        }
-                    }
-                    if (isShot)
-                    {
-                        agent.speed = 1.5f;
-                        sphereCollider.radius = 3;
-                    }
-                    if (!isShot)
-                    {
-                        agent.speed = 3.5f;
-                        sphereCollider.radius = 6;
-                    }
-
-
-                    break;
-
-
-                case 1:
-                    // エージェントが現目標地点に近づいてきたら、
-                    // 次の目標地点を選択します
-                    if (!isAttack)
-                    {
-                        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                            GotoNextPoint();
-                    }
-                    //索敵範囲内にPlayerが入ったらおう
-                    if (isAttack)
-                        agent.SetDestination(Player.transform.position);
-                    //索敵範囲外に行った後1秒間追跡する
-                    if (isTracking)
-                    {
-                        time += 1 / 60f;
-                        if (time >= trackingstop)
-                        {
-                            isAttack = false;
-                            isTracking = false;
-                            isSerch = false;
-                        }
-                    }
-                    if (!isTracking)
-                        time = 0;
-
-                    if (isShot)
-                    {
-                        times += 1 / 60f;
-                        if (times >= shottime)
-                        {
-                            times = 0;
-                            ht.isFear = false;
-                        }
-                    }
-                    if (isShot)
-                    {
-                        agent.speed = 2.5f;
-                        sphereCollider.radius = 4.5f;
-                    }
-                    if (!isShot)
-                    {
-                        agent.speed = 3.5f;
-                        sphereCollider.radius = 6;
-                    }
-
-                    break;
-                case 2:
-                    PlayerCatch = true;
-                    // エージェントが現目標地点に近づいてきたら、
-                    // 次の目標地点を選択します
-                    if (!isAttack)
-                    {
-                        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                            GotoNextPoint();
-                    }
-                    //索敵範囲内にPlayerが入ったらおう
-                    if (isAttack)
-                        agent.SetDestination(Player.transform.position);
-                    //索敵範囲外に行った後1秒間追跡する
-                    if (isTracking)
-                    {
-                        time += 1 / 60f;
-                        if (time >= trackingstop)
-                        {
-                            isAttack = false;
-                            isTracking = false;
-                            isSerch = false;
-                        }
-                    }
-                    if (!isTracking)
-                        time = 0;
-
-                    break;
+                agent.SetDestination(Player.transform.position * -1);
             }
+            if (Player.transform.position.x < transform.position.x)
+            {
+                agent.SetDestination(Player.transform.position * 3);
+            }
+            if (time >= trackingstop)
+            {
+                isRunaway = false;
+            }
+        }
+        if (!isTracking && !isRunaway)
+            time = 0;
+      
+           
+        if (!isRunaway)
+           agent.speed = 3.5f;
+    }
+    void Patrol()
+    {
+        switch (fear.FearLevel)
+        {
+            case 0:
+                // エージェントが現目標地点に近づいてきたら、
+                // 次の目標地点を選択します
+                if (!isAttack)
+                {
+                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                        GotoNextPoint();
+                }
+                //索敵範囲内にPlayerが入ったらおう
+                if (isAttack)
+                    agent.SetDestination(Player.transform.position);
+                //索敵範囲外に行った後1秒間追跡する
+                if (isTracking)
+                {
+                    time += 1 / 60f;
+                    if (time >= trackingstop)
+                    {
+                        isAttack = false;
+                        isTracking = false;
+                        isSerch = false;
+                    }
+                }
+                if (!isTracking)
+                    time = 0;
+
+                if (isShot)
+                {
+                    times += 1 / 60f;
+                    if (times >= shottime)
+                    {
+                        times = 0;
+                        ht.isFear = false;
+                    }
+                }
+                if (isShot)
+                {
+                    agent.speed = 1.5f;
+                    sphereCollider.radius = 3;
+                }
+                if (!isShot)
+                {
+                    agent.speed = 3.5f;
+                    sphereCollider.radius = 6;
+                }
+
+
+                break;
+
+
+            case 1:
+                // エージェントが現目標地点に近づいてきたら、
+                // 次の目標地点を選択します
+                if (!isAttack)
+                {
+                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                        GotoNextPoint();
+                }
+                //索敵範囲内にPlayerが入ったらおう
+                if (isAttack)
+                    agent.SetDestination(Player.transform.position);
+                //索敵範囲外に行った後1秒間追跡する
+                if (isTracking)
+                {
+                    time += 1 / 60f;
+                    if (time >= trackingstop)
+                    {
+                        isAttack = false;
+                        isTracking = false;
+                        isSerch = false;
+                    }
+                }
+                if (!isTracking)
+                    time = 0;
+
+                if (isShot)
+                {
+                    times += 1 / 60f;
+                    if (times >= shottime)
+                    {
+                        times = 0;
+                        ht.isFear = false;
+                    }
+                }
+                if (isShot)
+                {
+                    agent.speed = 2.5f;
+                    sphereCollider.radius = 4.5f;
+                }
+                if (!isShot)
+                {
+                    agent.speed = 3.5f;
+                    sphereCollider.radius = 6;
+                }
+
+                break;
+            case 2:
+                PlayerCatch = true;
+                // エージェントが現目標地点に近づいてきたら、
+                // 次の目標地点を選択します
+                if (!isAttack)
+                {
+                    if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                        GotoNextPoint();
+                }
+                //索敵範囲内にPlayerが入ったらおう
+                if (isAttack)
+                    agent.SetDestination(Player.transform.position);
+                //索敵範囲外に行った後1秒間追跡する
+                if (isTracking)
+                {
+                    time += 1 / 60f;
+                    if (time >= trackingstop)
+                    {
+                        isAttack = false;
+                        isTracking = false;
+                        isSerch = false;
+                    }
+                }
+                if (!isTracking)
+                    time = 0;
+
+                break;
         }
     }
+}
