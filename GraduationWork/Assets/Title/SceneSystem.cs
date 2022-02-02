@@ -20,6 +20,9 @@ public class SceneSystem : MonoBehaviour
         playOnce = true;
     }
 
+    
+
+
     // Update is called once per frame
     void Update()
     {
