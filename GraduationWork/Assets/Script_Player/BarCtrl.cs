@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BarCtrl : MonoBehaviour
 {
+    [SerializeField]
     Slider _slider;
     [SerializeField]
     float _hp = 0;
