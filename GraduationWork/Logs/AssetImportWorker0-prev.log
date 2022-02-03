@@ -15,11 +15,11 @@ D:/GraduationWork/GraduationWork
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51508
+52254
 Successfully changed project path to: D:/GraduationWork/GraduationWork
 D:/GraduationWork/GraduationWork
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 37.10 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 49.33 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.11f1 (99c7afb366b3)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -35,534 +35,276 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56252
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56764
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002763 seconds.
+Registered in 0.002798 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 30.37 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 32.15 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.591 seconds
+- Completed reload, in  1.599 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.003044 seconds.
+Registered in 0.002981 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.147 seconds
+- Completed reload, in  1.227 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.32 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1446 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 71.1 MB.
 System memory in use after: 71.2 MB.
 
 Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1886.
-Total: 2.167300 ms (FindLiveObjects: 0.197600 ms CreateObjectMapping: 0.054800 ms MarkObjects: 1.845700 ms  DeleteObjects: 0.067900 ms)
+Total: 2.064500 ms (FindLiveObjects: 0.175100 ms CreateObjectMapping: 0.054000 ms MarkObjects: 1.765900 ms  DeleteObjects: 0.068100 ms)
 
 ========================================================================
 Received Import Request.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73ba2ed463f29965b7b27b6fa49144fd') in 0.018461 seconds
+  Import took 0.022065 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 59.741698 seconds.
   path: Assets/Gimmick/InfraredSensor.prefab
   artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1b1655cb0cbff6e563a1573fe4cc7d7') in 0.128774 seconds
-  Import took 0.132933 seconds .
+Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23b9123396470fd815868e95bfbeae51') in 0.158984 seconds
+  Import took 0.164182 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000396 seconds.
+  Time since last request: 0.000335 seconds.
   path: Assets/Gimmick/SurveillanceCamera.prefab
   artifactKey: Guid(41d515a3df76393488b1046ec68fea39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/SurveillanceCamera.prefab using Guid(41d515a3df76393488b1046ec68fea39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee63fcca93e97fdcec8e0fb4883fb7b4') in 0.018926 seconds
-  Import took 0.022188 seconds .
+Start importing Assets/Gimmick/SurveillanceCamera.prefab using Guid(41d515a3df76393488b1046ec68fea39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee63fcca93e97fdcec8e0fb4883fb7b4') in 0.032810 seconds
+  Import took 0.037367 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000238 seconds.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Gimmick/SensorPowerBox.prefab
+  artifactKey: Guid(6db6df93a506a5448b06cd1d94b58c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Gimmick/SensorPowerBox.prefab using Guid(6db6df93a506a5448b06cd1d94b58c36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f4621783d4c910c11b7580513a6295a') in 0.054135 seconds
+  Import took 0.061753 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000696 seconds.
   path: Assets/Gimmick/InfrareSensor.prefab
   artifactKey: Guid(e3e7c5e6467b6f947bbf639fa8004f34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfrareSensor.prefab using Guid(e3e7c5e6467b6f947bbf639fa8004f34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31f4d47067dd8edbb5cb54d2317b1f81') in 0.094931 seconds
-  Import took 0.099260 seconds .
+Start importing Assets/Gimmick/InfrareSensor.prefab using Guid(e3e7c5e6467b6f947bbf639fa8004f34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31f4d47067dd8edbb5cb54d2317b1f81') in 0.034543 seconds
+  Import took 0.039500 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000320 seconds.
+  Time since last request: 0.000303 seconds.
   path: Assets/Gimmick/SurveCamPowerBox.prefab
   artifactKey: Guid(f5fc70b1311a73246ae70372fd744623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/SurveCamPowerBox.prefab using Guid(f5fc70b1311a73246ae70372fd744623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3ddd54608d20f10f07eff943ce42275') in 0.020794 seconds
-  Import took 0.025937 seconds .
+Start importing Assets/Gimmick/SurveCamPowerBox.prefab using Guid(f5fc70b1311a73246ae70372fd744623) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3ddd54608d20f10f07eff943ce42275') in 0.027002 seconds
+  Import took 0.031144 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 48.215257 seconds.
+  Time since last request: 533.379734 seconds.
   path: Assets/Gimmick/InfraredSensor.prefab
   artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc0a38613beb6579c02458f0a12609ec') in 0.015977 seconds
-  Import took 0.019347 seconds .
+Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4616bcec9813938402d67f04d5ff4f1') in 0.023010 seconds
+  Import took 0.028694 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008636 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.301 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1439 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.1 MB.
+System memory in use after: 74.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1898.
+Total: 2.442200 ms (FindLiveObjects: 0.185800 ms CreateObjectMapping: 0.058600 ms MarkObjects: 2.163300 ms  DeleteObjects: 0.033000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.434843 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47de986924862ab3874f5c378ac78239') in 0.016661 seconds
-  Import took 0.019558 seconds .
+  Time since last request: 2836.074794 seconds.
+  path: Assets/Script/maeda_Script/GimmickManager.cs
+  artifactKey: Guid(86eddbd7b139fc641a7982250c0cbdd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/maeda_Script/GimmickManager.cs using Guid(86eddbd7b139fc641a7982250c0cbdd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31965da19738308fb3a2eac4a0f4a3a2') in 0.012880 seconds
+  Import took 0.015641 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.813922 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac3838e62b4665f2af5f834956e816fd') in 0.015921 seconds
-  Import took 0.019620 seconds .
+  Time since last request: 103.266035 seconds.
+  path: Assets/Scenes/GimmickTestScene.unity
+  artifactKey: Guid(98970c862149098459584dc0e5bce471) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GimmickTestScene.unity using Guid(98970c862149098459584dc0e5bce471) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53ffd4881413f6bfe447f00f0a2ed331') in 0.024531 seconds
+  Import took 0.030906 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 10.411875 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b91663a9095a239d21ac60843a8fb4ff') in 0.015158 seconds
-  Import took 0.018673 seconds .
+  Time since last request: 298.312472 seconds.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd9670e949edc9e62d8aaf397c0c0beb') in 0.004760 seconds
+  Import took 0.012461 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003097 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.471 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1439 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.2 MB.
+System memory in use after: 74.3 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1901.
+Total: 2.364600 ms (FindLiveObjects: 0.197100 ms CreateObjectMapping: 0.048700 ms MarkObjects: 2.096100 ms  DeleteObjects: 0.021200 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.043472 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '467a078d19e70aec8f6f30097e9826d7') in 0.014307 seconds
-  Import took 0.018061 seconds .
+  Time since last request: 165.426259 seconds.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29ac66c80f7231eb7e6576a835913c7e') in 0.024427 seconds
+  Import took 0.029949 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006154 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.268 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1439 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.2 MB.
+System memory in use after: 74.3 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1904.
+Total: 2.444900 ms (FindLiveObjects: 0.262400 ms CreateObjectMapping: 0.051900 ms MarkObjects: 2.105200 ms  DeleteObjects: 0.024000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.414827 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd47aef33c6497ea76d8c5817a6a1cc9a') in 0.016573 seconds
-  Import took 0.019933 seconds .
+  Time since last request: 251.177028 seconds.
+  path: Assets/Player_Prehub/Player.prefab
+  artifactKey: Guid(83dbdee0d216b104f8dab261399247ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player_Prehub/Player.prefab using Guid(83dbdee0d216b104f8dab261399247ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3be6d84685d8571efd78fdda16731fa3') in 0.623765 seconds
+  Import took 0.636561 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.428569 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c238312534dfd8e8d531e9e1fd54c49') in 0.016968 seconds
-  Import took 0.020168 seconds .
+  Time since last request: 0.000333 seconds.
+  path: Assets/Player_Prehub/Wall.prefab
+  artifactKey: Guid(d96fa9b492164ee40a5153fcc8084e6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player_Prehub/Wall.prefab using Guid(d96fa9b492164ee40a5153fcc8084e6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb698c666de45dd78ea092adf96032f7') in 0.026421 seconds
+  Import took 0.032644 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003840 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.366 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.04 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1439 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 87.9 MB.
+System memory in use after: 88.0 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1911.
+Total: 2.676000 ms (FindLiveObjects: 0.214500 ms CreateObjectMapping: 0.068300 ms MarkObjects: 2.366400 ms  DeleteObjects: 0.025300 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.212631 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5787e5a803b28f309a537af57135bea') in 0.014654 seconds
-  Import took 0.017511 seconds .
+  Time since last request: 16.963222 seconds.
+  path: Assets/Player_Prehub/Player.prefab
+  artifactKey: Guid(83dbdee0d216b104f8dab261399247ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player_Prehub/Player.prefab using Guid(83dbdee0d216b104f8dab261399247ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '285f3b7389d8205dac69945e8b0eca51') in 0.473326 seconds
+  Import took 0.510592 seconds .
 
 ========================================================================
-Received Import Request.
-  Time since last request: 2.210247 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88686989705a8161e50c5f917d325761') in 0.014919 seconds
-  Import took 0.018077 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003375 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.248 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1439 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.0 MB.
+System memory in use after: 88.1 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1915.
+Total: 2.794500 ms (FindLiveObjects: 0.249800 ms CreateObjectMapping: 0.072800 ms MarkObjects: 2.444000 ms  DeleteObjects: 0.025600 ms)
 
 ========================================================================
-Received Import Request.
-  Time since last request: 8.898779 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bc48002d6628cb18a6bd38133831ea8') in 0.014856 seconds
-  Import took 0.018558 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002933 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.166 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1439 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 88.0 MB.
+System memory in use after: 88.1 MB.
 
-========================================================================
-Received Import Request.
-  Time since last request: 2.438185 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0d0bb1ba5be8a0199f9f1aa09bcc693') in 0.014226 seconds
-  Import took 0.017349 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.070352 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e72e45ad390f6591e1dfc53d61d724f5') in 0.015466 seconds
-  Import took 0.019382 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 32.439667 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a543f6ee3c34dbda0067c338aae5a34') in 0.015473 seconds
-  Import took 0.018401 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.420253 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de8dc2835b364799bf99bcf1f152456c') in 0.015047 seconds
-  Import took 0.018384 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.994634 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84c7c1cbc8777dad10f511662f9a1470') in 0.013944 seconds
-  Import took 0.017121 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.221850 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd2b7d62ddba64f19eca2beb7d723867') in 0.015931 seconds
-  Import took 0.020307 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.971585 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '198c690667bffebee9a2f156c4ce8c3c') in 0.014692 seconds
-  Import took 0.018040 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.471655 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '025a4aff0f32f1497221db884839efab') in 0.014895 seconds
-  Import took 0.018357 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.431930 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1e9353f52b5f8a6d2d9095c5dc9aeab') in 0.014142 seconds
-  Import took 0.017587 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.849549 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20e506c1e5bbdd49faf3864e7e56a4a1') in 0.015499 seconds
-  Import took 0.018686 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.426304 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1763bb7c4a45e22ce62d4c0af4b431d3') in 0.016219 seconds
-  Import took 0.019534 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.284813 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f511cf4144e346618f848e14bc9161de') in 0.018545 seconds
-  Import took 0.021689 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.742576 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'feeacf3252c13dd5728899b53a3bfa18') in 0.019019 seconds
-  Import took 0.021949 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.603023 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '229848d848d0dbbafae96516417df18b') in 0.016878 seconds
-  Import took 0.020625 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.271128 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc516ab9fe923aaa654efd6f1cf7c890') in 0.015173 seconds
-  Import took 0.018689 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.124462 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb8e76e34af3c6933763b291b90f3c61') in 0.014843 seconds
-  Import took 0.018257 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.472706 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '465317bd6bf76500e5f0934919ef9c44') in 0.015404 seconds
-  Import took 0.018544 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.304634 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d4a3f29143b847f2e353a39d7c28d26') in 0.016022 seconds
-  Import took 0.019785 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.524437 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '717173f5b0aa5c40cad072834cb2f791') in 0.011684 seconds
-  Import took 0.014838 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.024336 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8acccd4cf52986f6ef508931114139b1') in 0.015866 seconds
-  Import took 0.019408 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.013830 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9c818651e645d4fe4e373297e8b6e59') in 0.018030 seconds
-  Import took 0.022370 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.525862 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3e3139c6075478796b6d83d4e194d52') in 0.014939 seconds
-  Import took 0.018466 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 30.556754 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fecb030e59f45e1647c791da5396d16d') in 0.015245 seconds
-  Import took 0.018216 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.244349 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '774b9aa8132fb38506c4ff5ffd14ccd6') in 0.015701 seconds
-  Import took 0.018863 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.638416 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '529191834a6bf9ec948266ae6578d5bf') in 0.015208 seconds
-  Import took 0.018299 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.656548 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c06ee48802c2b3c21923162e0abbf55') in 0.015309 seconds
-  Import took 0.018246 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.017548 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89b12b6e50e8be9a24a63bafa3f34726') in 0.017075 seconds
-  Import took 0.020292 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.294165 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '372ccb00858b4e9bdeea727309d6de84') in 0.015354 seconds
-  Import took 0.019102 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.674755 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd22bae29f40e08d971ce5db3af8cac06') in 0.014606 seconds
-  Import took 0.017673 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 24.401713 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd2f9a786eb3f437da4877d277f78369') in 0.015293 seconds
-  Import took 0.018339 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.026935 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1e02db293cdce00ee9da16301c9d105') in 0.015757 seconds
-  Import took 0.019361 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 15.400434 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d701869da3acb42e048dea139299013') in 0.011246 seconds
-  Import took 0.014529 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.534057 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccec35a6e0973c1470e5ae8cb4002ac7') in 0.011433 seconds
-  Import took 0.014909 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.649908 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bbb2b69526d8d4a8d9d7c6bddd41f7d') in 0.015499 seconds
-  Import took 0.018863 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.237408 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69aa384af1a9c71f19ed39865592d051') in 0.015407 seconds
-  Import took 0.018344 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.903782 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a27d3933a13998f3b48919b8fd9f4f9a') in 0.017925 seconds
-  Import took 0.021022 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.832792 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56b5aff450b4c0b6542b82eba182d14d') in 0.015339 seconds
-  Import took 0.018684 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.819842 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33a013d0a070267e75f4564e25e8870d') in 0.015380 seconds
-  Import took 0.018285 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.340448 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b022708ffb32bbb5bdd2fa08e9a9c12') in 0.014564 seconds
-  Import took 0.017728 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.621685 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97807c63f45418f41a7d87df463fc1d7') in 0.015009 seconds
-  Import took 0.018153 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.979034 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ce894e6f0efc88ddf315eccf73bd7e8') in 0.015031 seconds
-  Import took 0.018596 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.213311 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad4485b6582aeed0a21b9c84426b247e') in 0.015872 seconds
-  Import took 0.019028 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.117993 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49262b0e886b4c97780e637062a47965') in 0.014950 seconds
-  Import took 0.017866 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.343768 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2ac32551e75090bfa098afbf6c70d76') in 0.015306 seconds
-  Import took 0.018213 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 63.070368 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51230e9d0d256c95280545546f1f32d1') in 0.015551 seconds
-  Import took 0.018701 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.873303 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecca92a607fa75fe0ca951c85238ec8e') in 0.011550 seconds
-  Import took 0.014498 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.193088 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db2a71e6c32b1db4749641ff7a15f281') in 0.013069 seconds
-  Import took 0.016266 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.810963 seconds.
-  path: Assets/Gimmick/InfraredSensor.prefab
-  artifactKey: Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Gimmick/InfraredSensor.prefab using Guid(020e94bc9b04f2b4a849098d9478a901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '012cd60eb7f8d8744f7311f1d1f5d498') in 0.011820 seconds
-  Import took 0.014855 seconds .
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1918.
+Total: 2.253200 ms (FindLiveObjects: 0.182300 ms CreateObjectMapping: 0.045300 ms MarkObjects: 2.004700 ms  DeleteObjects: 0.019800 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
