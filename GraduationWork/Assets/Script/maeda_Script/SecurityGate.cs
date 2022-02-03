@@ -26,9 +26,6 @@ public class SecurityGate : MonoBehaviour
         if (infrareSensor.GetPower()) //センサーの電源がONの時
         {
             GateObj.SetActive(true);
-
         }
-
-
     }
 }

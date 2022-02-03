@@ -49,12 +49,6 @@ public class InfrareSensor : MonoBehaviour
             return; //シャットダウンしたら下の処理しない
         }
 
-        //デバッグ用
-        //if (Input.GetKeyDown(KeyCode.G))
-        //{
-        //    LaserPowerOFF();
-        //}
-
         if (laserIrradiation) return;
 
         if(laserRebootTime <= 3.0f)
@@ -85,10 +79,7 @@ public class InfrareSensor : MonoBehaviour
 
         if(other.CompareTag("Player"))
         {
-            //barCtrl.SetHP(10.0f);
             playerLaserHit = true;
-            //audioSource.PlayOneShot(audioClip);
-
         }
 
         if (other.CompareTag("PlayerAttack"))
@@ -152,7 +143,7 @@ public class InfrareSensor : MonoBehaviour
     /// <summary>
     /// レーザー消滅時の処理
     /// </summary>
-    private void LaserPowerOFF()
+    public void LaserPowerOFF()
     {
         boxCol.enabled = false;
         laserIrradiation = false;

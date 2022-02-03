@@ -35,7 +35,7 @@ public class SurveillanceCamera : MonoBehaviour
     {
         playerSearchHit = false;
         defaultRotation = transform.rotation;
-        //alertAudio = GetComponent<AudioSource>();
+        alertAudio = GetComponent<AudioSource>();
 
         if (barCtrl == null) return;
     }
@@ -50,11 +50,11 @@ public class SurveillanceCamera : MonoBehaviour
 
         if (playerSearchHit)
         {
-            //alertAudio.Play();
+            alertAudio.Play();
             hitSec += 0.05f;
             if (hitSec >= 10)
             {
-                //barCtrl.SetHP(10);
+                barCtrl.SetHP(5.0f);
                 hitSec = 0;
             }
         }
