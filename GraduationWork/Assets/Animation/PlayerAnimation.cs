@@ -22,7 +22,8 @@ public class PlayerAnimation : MonoBehaviour
         if (ghostSystem.GetIsGhost())
             return;
 
-        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        if (Input.GetAxis("Horizontal") != 0 ||
+            Input.GetAxis("Vertical") != 0)
             animator.SetBool(key_isRun, true);
         else
             animator.SetBool(key_isRun, false);
