@@ -9,12 +9,14 @@ public class SecurityGate : MonoBehaviour
     [SerializeField] InfrareSensor infrareSensor;
     [SerializeField] GameObject GateObj;
 
+    private bool onceCreate = true;
 
     // Start is called before the first frame update
     void Start()
     {
         //GateObj = transform.Find("Gate").gameObject;
-        GateObj.SetActive(false);
+        //GateObj.SetActive(false);
+        onceCreate = true;
     }
 
     // Update is called once per frame
@@ -23,9 +25,11 @@ public class SecurityGate : MonoBehaviour
         backWayFlag = RoundTripManager.GetIsBackWay();
 
         if (!backWayFlag) return; //脱出フラグ
-        if (infrareSensor.GetPower()) //センサーの電源がONの時
+        if (infrareSensor.GetPower() && onceCreate) //センサーの電源がONの時
         {
-            GateObj.SetActive(true);
+            //GateObj.SetActive(true);
+            Instantiate(GateObj, this.transform.position, transform.rotation, transform);
+            onceCreate = false;
         }
     }
 }

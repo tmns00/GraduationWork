@@ -10,10 +10,12 @@ public class SensorPowerBox : MonoBehaviour
 
     InfrareSensor infrareSensor = null;
 
+    private AudioSource source;
+
     private void Start()
     {
         infrareSensor = sensorObj.GetComponent<InfrareSensor>();
-
+        source = GetComponent<AudioSource>();
     }
     
     private void OnTriggerStay(Collider other)
@@ -22,6 +24,7 @@ public class SensorPowerBox : MonoBehaviour
         {
             if (Input.GetButtonDown("Pick"))
             {
+                source.PlayOneShot(source.clip);
                 //センサーをシャットダウンする
                 infrareSensor.ShutDown();
             }

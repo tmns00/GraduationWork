@@ -10,21 +10,16 @@ public class InfrareSensor : MonoBehaviour
     [SerializeField] Material laserMaterial;
     static bool playerLaserHit;//プレイヤーがレーザーに触れた
     [SerializeField] float setRebootTime;//再起動にかかる時間
-    [SerializeField] AudioClip audioClip;
-    AudioSource audioSource;
     [SerializeField]BoxCollider boxCol;
     float alpha = 1;
     float laserRebootTime;
     bool gimkPower;//ギミックの電力
     
-    [SerializeField]
-    private BarCtrl barCtrl;
 
     private void Start()
     {
         gimkPower = true;
         boxCol = transform.Find("Sasers").GetComponent<BoxCollider>();
-        audioSource = GetComponent<AudioSource>();
         laserRebootTime = setRebootTime;
 
         for(int i = 0; i < 2; i++)
@@ -43,7 +38,7 @@ public class InfrareSensor : MonoBehaviour
         laser[1].GetComponent<Renderer>().material.color = laserMaterial.color;
         laser[2].GetComponent<Renderer>().material.color = laserMaterial.color;
 
-        if (!gimkPower) //シャットダウン
+        if (!gimkPower || RoundTripManager.GetIsBackWay()) //シャットダウン
         {
             LaserPowerOFF();
             return; //シャットダウンしたら下の処理しない
@@ -133,7 +128,6 @@ public class InfrareSensor : MonoBehaviour
     public void ShutDown()
     {
         gimkPower = false;
-        audioSource.PlayOneShot(audioClip);
     }
 
     public bool GetPower()

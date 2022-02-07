@@ -13797,6 +13797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 950735693807746305, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 950735693807746305, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
@@ -13848,7 +13853,7 @@ PrefabInstance:
     - target: {fileID: 950735693807746312, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 950735693807746312, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
@@ -15090,7 +15095,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1774820785
 GameObject:
