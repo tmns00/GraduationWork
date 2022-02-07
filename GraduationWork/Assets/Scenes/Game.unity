@@ -13780,6 +13780,11 @@ PrefabInstance:
       objectReference: {fileID: 868964336}
     - target: {fileID: 950735693807746306, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
+      propertyPath: useRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 950735693807746306, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
       propertyPath: actionUI
       value: 
       objectReference: {fileID: 2080242427}

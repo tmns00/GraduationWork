@@ -1,0 +1,129 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19043.1466; Version 2009; 64bit' Language: 'ja' Physical Memory: 8133 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/K018A1924/Desktop/last/GraduationWork
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+53924
+Successfully changed project path to: C:/Users/K018A1924/Desktop/last/GraduationWork
+C:/Users/K018A1924/Desktop/last/GraduationWork
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 59.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.11f1 (99c7afb366b3)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/K018A1924/Desktop/last/GraduationWork/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 (ID=0x1c20)
+    Vendor:   
+    VRAM:     6052 MB
+    Driver:   26.21.14.3615
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56132
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/LuminSupport/UnityEditor.Lumin.Extensions.dll
+Registered in 0.018489 seconds.
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 43.94 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  7.005 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.035711 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.598 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1446 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 70.3 MB.
+System memory in use after: 70.3 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1885.
+Total: 2.208800 ms (FindLiveObjects: 0.170700 ms CreateObjectMapping: 0.049200 ms MarkObjects: 1.905600 ms  DeleteObjects: 0.082100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/walls.prefab
+  artifactKey: Guid(041b212520716d7439d25a6646bd3c1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/walls.prefab using Guid(041b212520716d7439d25a6646bd3c1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72d7dcc6b3a51809841aa4980576bf8c') in 0.195713 seconds
+  Import took 0.199187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001636 seconds.
+  path: Assets/walls_kai.prefab
+  artifactKey: Guid(786b5c07c807c58458676a82fa00a132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/walls_kai.prefab using Guid(786b5c07c807c58458676a82fa00a132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a06bdb710f53fe6e63cf8b17fe2785a8') in 0.036602 seconds
+  Import took 0.042104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000275 seconds.
+  path: Assets/gimicks_kai.prefab
+  artifactKey: Guid(194786213be324c44997418b36192d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/gimicks_kai.prefab using Guid(194786213be324c44997418b36192d39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0580caaa7042e29bb2a6ccd9f08dc6d6') in 0.049691 seconds
+  Import took 0.054934 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000287 seconds.
+  path: Assets/map_kai.prefab
+  artifactKey: Guid(a29031b9aa5fd494c951c91d10e6b65d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/map_kai.prefab using Guid(a29031b9aa5fd494c951c91d10e6b65d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dbc49f2338b97c884d10affe530209f') in 0.225189 seconds
+  Import took 0.234538 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.631416 seconds.
+  path: Assets/Scenes/Treasure.prefab
+  artifactKey: Guid(faebca49049922342b6b2780d42d3ca0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Treasure.prefab using Guid(faebca49049922342b6b2780d42d3ca0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1069c0c5f1a3cb98a3895affa59e34e5') in 0.015251 seconds
+  Import took 0.018831 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.174277 seconds.
+  path: Assets/Scenes/Game.unity
+  artifactKey: Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Game.unity using Guid(7803de2dd79d9234f8fbccb9309744eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd295435ed0065d3b4425cbcb4a0759e6') in 0.004277 seconds
+  Import took 0.008423 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
