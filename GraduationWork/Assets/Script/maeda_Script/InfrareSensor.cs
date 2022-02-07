@@ -133,6 +133,7 @@ public class InfrareSensor : MonoBehaviour
     public void ShutDown()
     {
         gimkPower = false;
+        audioSource.PlayOneShot(audioClip);
     }
 
     public bool GetPower()

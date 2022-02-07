@@ -7469,7 +7469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de581a692e4b434d9f98976a3849964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createNumsFirst: 29
+  createNumsFirst: 0
   addBackWayNum: 0
   objects:
   - {fileID: 573563886960513558, guid: 081e4f42dcbe1ab438a4cb4588f20678, type: 3}
@@ -13823,7 +13823,7 @@ PrefabInstance:
     - target: {fileID: 950735693807746308, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 950735693807746311, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
