@@ -13,7 +13,7 @@ public class SecurityGate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GateObj = transform.Find("Gate").gameObject;
+        //GateObj = transform.Find("Gate").gameObject;
         GateObj.SetActive(false);
     }
 

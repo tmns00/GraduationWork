@@ -13790,6 +13790,16 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 950735693807746305, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 950735693807746305, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 950735693807746306, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
       propertyPath: barCtrl
