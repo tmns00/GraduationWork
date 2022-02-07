@@ -228,9 +228,9 @@ MonoBehaviour:
   isAttack: 0
   Player: {fileID: 0}
   searchAngle: 45
-  trackingstop: 0
+  trackingstop: 0.5
   isShot: 0
-  shottime: 0
+  shottime: 10
   fear: {fileID: 7951758042427711970}
   PlayerCatch: 0
   ht: {fileID: 7951758042254963824}

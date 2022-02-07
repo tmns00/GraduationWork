@@ -7469,8 +7469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de581a692e4b434d9f98976a3849964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createNumsFirst: 6
-  addBackWayNum: 14
+  createNumsFirst: 29
+  addBackWayNum: 0
   objects:
   - {fileID: 573563886960513558, guid: 081e4f42dcbe1ab438a4cb4588f20678, type: 3}
   - {fileID: 4213296230545206820, guid: 412c8b54307afdc4b9a56f5aa5410996, type: 3}
@@ -13785,11 +13785,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 950735693807746304, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 950735693807746306, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
       propertyPath: barCtrl
       value: 
       objectReference: {fileID: 868964336}
+    - target: {fileID: 950735693807746306, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
+      propertyPath: useRate
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 950735693807746306, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
       propertyPath: actionUI
@@ -13809,6 +13819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 950735693807746308, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 950735693807746311, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
@@ -13894,6 +13909,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993176224846226262, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 950735693807746307, guid: 83dbdee0d216b104f8dab261399247ed, type: 3}

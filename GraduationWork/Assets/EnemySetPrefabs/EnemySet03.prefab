@@ -758,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.8834972, y: 1.0343552}
+  m_AnchoredPosition: {x: -2.8834972, y: 1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &6624039150350016485
@@ -843,9 +843,9 @@ MonoBehaviour:
   isAttack: 0
   Player: {fileID: 0}
   searchAngle: 45
-  trackingstop: 0
+  trackingstop: 0.5
   isShot: 0
-  shottime: 0
+  shottime: 10
   fear: {fileID: 6624039148624223650}
   PlayerCatch: 0
   ht: {fileID: 6624039149315051884}

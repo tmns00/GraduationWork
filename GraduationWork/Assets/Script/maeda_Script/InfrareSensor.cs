@@ -75,7 +75,7 @@ public class InfrareSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!gimkPower) return;
+        if (!gimkPower || RoundTripManager.GetIsBackWay()) return;
 
         if(other.CompareTag("Player"))
         {

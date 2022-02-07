@@ -118,7 +118,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7607425621746025807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.1643314, y: 1.0343552}
+  m_AnchoredPosition: {x: 1.1643314, y: 1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &7607425623505736912
@@ -775,9 +775,9 @@ MonoBehaviour:
   isAttack: 0
   Player: {fileID: 0}
   searchAngle: 45
-  trackingstop: 0
+  trackingstop: 0.5
   isShot: 0
-  shottime: 0
+  shottime: 10
   fear: {fileID: 7607425623372551429}
   PlayerCatch: 0
   ht: {fileID: 7607425623534189624}
