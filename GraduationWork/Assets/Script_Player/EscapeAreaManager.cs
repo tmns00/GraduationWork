@@ -20,6 +20,10 @@ public class EscapeAreaManager : MonoBehaviour
     private bool isToArea = true;
     private bool moveOnce = true;
 
+    private const float stopLimit = 2;
+    private bool isStop = false;
+    private float stopCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,8 @@ public class EscapeAreaManager : MonoBehaviour
         startPos = Vector3.zero;
         isToArea = true;
         moveOnce = true;
+        isStop = false;
+        stopCount = 0;
     }
 
     // Update is called once per frame
@@ -43,9 +49,11 @@ public class EscapeAreaManager : MonoBehaviour
 
         countTime += Time.deltaTime;
 
-        if (moveOnce && isToArea)
+        if (moveOnce && isToArea && !isStop)
             MoveToCamera();
-        else if (moveOnce && !isToArea)
+        else if (moveOnce && isStop && isToArea)
+            StopCamera();
+        else if (moveOnce && !isToArea && !isStop)
             MoveReCamera();
     }
 
@@ -68,7 +76,22 @@ public class EscapeAreaManager : MonoBehaviour
 
         if(rate >=1.0f)
         {
+            //isToArea = false;
+            isStop = true;
+            countTime = 0.0f;
+        }
+    }
+
+    void StopCamera()
+    {
+        stopCount += Time.deltaTime;
+        camera.transform.position = areaPos;
+
+        if (stopCount>=stopLimit)
+        {
+            isStop = false;
             isToArea = false;
+            stopCount = 0;
             countTime = 0.0f;
         }
     }
