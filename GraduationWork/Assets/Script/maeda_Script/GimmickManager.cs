@@ -54,14 +54,13 @@ public class GimmickManager : MonoBehaviour
     bool HitPlayer()
     {
         var hit = false;
-        if (SurveillanceCamera.GetSearchHit()) //監視カメラに見つかったら
+
+        //監視カメラ、センサーに当たった
+        if (SurveillanceCamera.GetSearchHit()
+            || InfrareSensor.GetLaserHit())
         {
             hit = true;
 
-        }
-        else if( InfrareSensor.GetLaserHit())//センサーに触れたら
-        {
-            hit = true;
         }
      
         return hit;

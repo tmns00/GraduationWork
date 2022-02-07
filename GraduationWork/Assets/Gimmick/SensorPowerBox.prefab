@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensorObj: {fileID: 0}
+  buttonObj: {fileID: 4780499874485567269}
 --- !u!54 &8670528855436643917
 Rigidbody:
   m_ObjectHideFlags: 0

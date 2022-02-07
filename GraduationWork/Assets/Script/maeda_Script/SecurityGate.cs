@@ -9,11 +9,9 @@ public class SecurityGate : MonoBehaviour
     [SerializeField] InfrareSensor infrareSensor;
     [SerializeField] GameObject GateObj;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        GateObj = transform.Find("Gate").gameObject;
         GateObj.SetActive(false);
     }
 

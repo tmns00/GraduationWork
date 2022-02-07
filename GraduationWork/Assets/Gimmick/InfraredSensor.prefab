@@ -172,7 +172,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3741586730452058683}
   - component: {fileID: 4082260046331336836}
-  - component: {fileID: 4082260046331336838}
   - component: {fileID: 3755537934799472669}
   m_Layer: 0
   m_Name: InfraredSensor
@@ -219,22 +218,6 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: e781ff42c052fe44ea7e40f63fb8bbfd, type: 3}
   boxCol: {fileID: 7286812922050582949}
   barCtrl: {fileID: 0}
---- !u!54 &4082260046331336838
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4082260046331336833}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!82 &3755537934799472669
 AudioSource:
   m_ObjectHideFlags: 0

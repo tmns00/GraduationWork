@@ -6,6 +6,7 @@ public class SensorPowerBox : MonoBehaviour
 {
     bool gimkPower = true;//ギミックの電力
     [SerializeField] GameObject sensorObj;
+    [SerializeField] GameObject buttonObj;
     bool onSwich;//スイッチが押された
 
     InfrareSensor infrareSensor = null;
@@ -13,7 +14,7 @@ public class SensorPowerBox : MonoBehaviour
     private void Start()
     {
         infrareSensor = sensorObj.GetComponent<InfrareSensor>();
-
+        buttonObj.GetComponent<Renderer>().material.color = Color.red;
     }
     
     private void OnTriggerStay(Collider other)
@@ -22,6 +23,8 @@ public class SensorPowerBox : MonoBehaviour
         {
             if (Input.GetButtonDown("Pick"))
             {
+                buttonObj.GetComponent<Renderer>().material.color = 
+                    Color.green;
                 //センサーをシャットダウンする
                 infrareSensor.ShutDown();
             }

@@ -43,10 +43,10 @@ public class InfrareSensor : MonoBehaviour
         laser[1].GetComponent<Renderer>().material.color = laserMaterial.color;
         laser[2].GetComponent<Renderer>().material.color = laserMaterial.color;
 
-        if (!gimkPower) //シャットダウン
+        if (!gimkPower||RoundTripManager.GetIsBackWay()) //シャットダウンか帰りの時
         {
-            LaserPowerOFF();
-            return; //シャットダウンしたら下の処理しない
+            LaserPowerOFF();//レーザーを消滅させる
+            return; //下の処理しない
         }
 
         if (laserIrradiation) return;
@@ -75,7 +75,7 @@ public class InfrareSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!gimkPower) return;
+        if (!gimkPower || RoundTripManager.GetIsBackWay()) return;
 
         if(other.CompareTag("Player"))
         {
