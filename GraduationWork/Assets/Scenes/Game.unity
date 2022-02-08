@@ -7470,7 +7470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createNumsFirst: 7
-  addBackWayNum: 14
+  addBackWayNum: 18
   objects:
   - {fileID: 573563886960513558, guid: 081e4f42dcbe1ab438a4cb4588f20678, type: 3}
   - {fileID: 4213296230545206820, guid: 412c8b54307afdc4b9a56f5aa5410996, type: 3}
@@ -13904,6 +13904,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 950735693807746317, guid: 83dbdee0d216b104f8dab261399247ed,
+        type: 3}
+      propertyPath: speed
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 950735693807746319, guid: 83dbdee0d216b104f8dab261399247ed,
         type: 3}
